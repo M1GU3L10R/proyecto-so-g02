@@ -17,4 +17,7 @@
 | Sustentación  | Presentación y prueba individual              | vie 18 dic | 
 
 ## Quién hace qué en cada sprint
-(Una línea por integrante y por sprint)
+Sprint 0 
+Miguel Angel Romero: Creación del repositorio en GitHub, estructura base de ramas y revisión de Pull Requests.
+Faver Andrés Ibarguen: Verificación de versiones y correcion de la ficha técnica (plan/ficha-version.md).
+Luis Felipe Galindo: Redacción del plan de trabajo, asignación de roles y cronograma en README.md.
