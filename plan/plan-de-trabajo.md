@@ -1,11 +1,11 @@
 # Plan de trabajo – Grupo 02
 
 ## Integrantes y responsabilidades
-| Integrante           | Usuario GitHub   | Roles         |
-|----------------------|------------------|---------------|
-| Miguel Angel Romero  | M1GU3L10R        |    |
-| Faver Andres Ibarguen| faveribarguen-alt|    |
-| Luis Felipe Galindo  | luis-FG-Dev      |    |
+| Integrante           | Usuario GitHub   | Roles                        |
+|----------------------|------------------|------------------------------|
+| Miguel Angel Romero  | M1GU3L10R        |  Cordinación + VMs y red     |
+| Faver Andres Ibarguen| faveribarguen-alt|  Scripts y procesos + Docker |
+| Luis Felipe Galindo  | luis-FG-Dev      |  Seguridad + sitio y videos  |
 
 ## Fechas de los sprints (cierre 11:55 p. m.)
 | Sprint        | Qué se hace                                   | Santander  |

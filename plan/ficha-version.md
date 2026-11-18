@@ -11,4 +11,4 @@
 | Fecha de consulta  | 17/11/2026	    | 17/11/2026	      | 17/11/2026             |
 
 
-Fecha: ___  Verificado por: ___
+Fecha: 18/11/2026 | Verificado por: Faver Ibargüen, Felipe Galindo
