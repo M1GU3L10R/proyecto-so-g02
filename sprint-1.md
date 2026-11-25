@@ -97,24 +97,18 @@ Particiones creadas: `/` (13 GB), swap (1,9 GB), `/home` (8,4 GB) y `/boot/efi` 
 ![Escritorio con Firefox, Chromium, gedit y nano abiertos a la vez](img/s1-grafica-escritorio.png)
 
 Firefox: navegador web que ya venía instalado con Linux Mint.
-
 Chromium: segundo navegador, instalado mediante la terminal.
-
 Nano: editor de texto que ya estaba disponible en el sistema y funciona desde la terminal.
-
 gedit: editor de texto gráfico instalado mediante el gestor de paquetes APT.
 
 Para instalar las aplicaciones ejecutamos:
-
 sudo apt update
-
 sudo apt install -y chromium gedit
 
 El primer comando actualiza la información de los repositorios y el segundo instala Chromium y gedit junto con sus dependencias.
-
 Finalmente, abrimos simultáneamente Firefox, Chromium, Nano y gedit para comprobar que las cuatro aplicaciones funcionaban correctamente.
----
 
+---
 ## 2. VM de consola (g02-consola)
 
 **Qué hicimos:** <mark>COMPLETAR</mark> (disco de 25 GB y 2 CPU; particionado manual con `/`, swap, `/home` y `/var`; make, rsync, curl, git y wget)
