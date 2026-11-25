@@ -115,21 +115,33 @@ Finalmente, abrimos simultáneamente Firefox, Chromium, Nano y gedit para compro
 
 ### Paso 1. Creación y hardware de la máquina virtual
 
-![Configuración de la VM g02-consola: 2 CPU y 25 GB de disco](img/s1-consola-hardware.png)
+![Configuración de la VM g02-consola: 25 GB de disco](img/hard%20disck-%20vm%20consola%20.png)
+
+![Configuración de la VM g02-consola: 2 GB de Ram y 2 CPU](img/memoria%20y%20cpu-%20vm%20consola.png)
 
 Asignamos los recursos de hardware a la máquina virtual `g02-consola`:
 
 - Procesadores: 2 CPU.
 - Disco duro virtual: 25 GB.
-- Memoria RAM: COMPLETAR (ej. 2048 MB o 4096 MB).
+- Memoria RAM: 2 GB.
 
-### Paso 2. Particiones verificadas en la consola
+
+### Paso 2. Edición de particiones de VM consola
+
+![Configuración de Particionamiento de la maquina virtual](img/particiones-vm-consola.png)
+
+
+### Paso 3. Particiones verificadas en la consola
 
 **Comandos:**
 
+```
 date && lsblk
 df -h
 cat /etc/fstab
+```
+
+![Consola de particiones y codigos verificados](img/comandos-y-particiones-verificadas.png)
 
 ---
 
@@ -137,27 +149,32 @@ cat /etc/fstab
 
 **Qué hicimos:** Qué hicimos: Configuramos la conectividad de red de ambas máquinas virtuales (g02-grafica y g02-consola) en VirtualBox utilizando el Adaptador 1 en modo NAT (para salida a internet/repositorios) y el Adaptador 2 en modo Red solo-anfitrión (Host-only) (para comunicación interna entre el anfitrión y las VMs). Verificamos las direcciones IP asignadas y comprobamos la conectividad mediante ping en ambos sentidos.
 
-Paso 1. Configuración de adaptadores de red
-Adaptador 1 (NAT): Permite que cada máquina virtual acceda a redes externas e internet a través de la IP del equipo anfitrión.
+### Paso 1. Verificación de IP y pruebas de conectividad (ping)
 
-Adaptador 2 (Solo-anfitrión): Crea una red privada aislada entre el sistema anfitrión y las máquinas virtuales para facilitar la comunicación local sin exponer servicios directamente a redes externas.
+![Verificación de IP consola](img/ip-vm-consola.png)
 
-```
-Paso 2. Verificación de IP y pruebas de conectividad (ping)
+![Verificación de IP Grafica](img/ip-vm-grafica.png)
+
 
 ---
 
 ## 4. SSH
 
-**Qué hicimos:** Verificamos/habilitamos el servicio SSH en g02-consola y realizamos la conexión remota desde g02-grafica hacia g02-consola a través de la red solo-anfitrión
+**Qué hicimos:** Realizamos la conexion de VM grafica a VM consola mediante SSH, utilizando el siguiente comando:
 
 **Comandos:**
 
 ```
-COMPLETAR
+ssh faver@192.168.56.102
 ```
 
-**prueba en la conexion ssh:** <mark>COMPLETAR</mark>
+![Comando de conexion en consola](img/ssh-conexion.png)
+
+**prueba en la conexion ssh:** Como prueba creamos y enviamos un archivo TXT con el texto "Hola" desde la VM grafica hacia la VM consola:
+
+![Prueba: enviar archivo TXT de VM grafica a VM consola](img/prueba-de-ssh-1.png)
+
+![Prueba: Recibir archivo TXT de la VM grafica](img/prueba-de-ssh-2.png)
 
 ---
 
@@ -165,17 +182,23 @@ COMPLETAR
 
 **Qué hicimos:** Creamos una instantánea (snapshot) llamada instalacion-limpia en cada máquina virtual (g02-grafica y g02-consola) con las máquinas virtuales apagadas, para conservar un punto limpio de referencia antes de realizar cambios posteriores.
 
-**Captura:** <mark>COMPLETAR</mark>
+**Captura:**
+
+![Instantanea VM grafica](img/instantanea-vm-grafica.png)
+
+![Instantanea VM consola](img/instantanea-vm-consola.png)
 
 ---
 
 ## Errores y soluciones
 
-Error 1: COMPLETAR (nombre breve del error)
-Error: COMPLETAR (descripción del mensaje de error o fallo ocurrido).
+**Error 1:** 
 
-Causa probable: COMPLETAR (por qué ocurrió el problema).
+![Error de partición EFI](img/error.png)
 
-Solución aplicada: COMPLETAR (qué comandos, ajustes o pasos resolvieron el error).
+Error: No se encontro ninguna partición del sistema EFI. Es probable que este sistema no pueda arrancar correctamente y el proceso de instalación podria fallar.
+Porfavor,  vuelve atras y agrega una partición del sistema EFI, o continua bajo tu propio riesgo.
 
-Fuente: COMPLETAR (Título de la fuente — Enlace — Consultado el DD/MM/AAAA).
+Causa probable: No se encontro una partición del sistema EFI.
+
+Solución aplicada: Volver al apartado de particiones y asignarle una partición de entre 200 - 512 MB.
