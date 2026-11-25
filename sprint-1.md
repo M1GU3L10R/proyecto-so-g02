@@ -16,7 +16,9 @@ Cuando tengan el video, borren la línea de arriba y pegan aquí el código de I
 
 1. **Referencia del docente:**
    [Consultar documento PDF](https://campusvirtual.univalle.edu.co/moodle/pluginfile.php/5371733/mod_resource/content/1/Proyecto%20Final%20Sistemas%20Operativos%202026%20Sem_2_V11.pdf)
+
    [Consultar proyecto de referencia](https://joalcasta-uv.github.io/so-proyecto-final-demo/sprint-1.html)
+   
    [Consultar guía PDF](https://campusvirtual.univalle.edu.co/moodle/pluginfile.php/5371014/mod_resource/content/1/2.%20Guia_Particionamiento_y_Sistemas_de_Archivos.pdf)
 2. **Lo que investigamos y adaptamos:** Investigamos el proceso de instalación de Linux Mint 22.3 Cinnamon en una máquina virtual utilizando Oracle VirtualBox. También consultamos información sobre los requisitos de hardware, la asignación de memoria RAM y procesadores, la configuración gráfica y el particionado manual del disco.
 3. **Evidencias:** los cinco puntos siguientes.
@@ -170,6 +172,7 @@ ssh faver@192.168.56.102
 
 ![Comando de conexion en consola](img/ssh-conexion.png)
 
+
 **prueba en la conexion ssh:** Como prueba creamos y enviamos un archivo TXT con el texto "Hola" desde la VM grafica hacia la VM consola:
 
 ![Prueba: enviar archivo TXT de VM grafica a VM consola](img/prueba-de-ssh-1.png)
@@ -196,9 +199,9 @@ ssh faver@192.168.56.102
 
 ![Error de partición EFI](img/error.png)
 
-Error: No se encontro ninguna partición del sistema EFI. Es probable que este sistema no pueda arrancar correctamente y el proceso de instalación podria fallar.
+*Error:* No se encontro ninguna partición del sistema EFI. Es probable que este sistema no pueda arrancar correctamente y el proceso de instalación podria fallar.
 Porfavor,  vuelve atras y agrega una partición del sistema EFI, o continua bajo tu propio riesgo.
 
-Causa probable: No se encontro una partición del sistema EFI.
+*Causa probable:* No se encontro una partición del sistema EFI.
 
-Solución aplicada: Volver al apartado de particiones y asignarle una partición de entre 200 - 512 MB.
+*Solución aplicada:* Volver al apartado de particiones y asignarle una partición de entre 200 - 512 MB.
