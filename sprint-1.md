@@ -15,10 +15,11 @@ Cuando tengan el video, borren la línea de arriba y pegan aquí el código de I
 ## Referencia, adaptación y evidencias
 
 1. **Referencia del docente:**
+
    [Consultar documento PDF](https://campusvirtual.univalle.edu.co/moodle/pluginfile.php/5371733/mod_resource/content/1/Proyecto%20Final%20Sistemas%20Operativos%202026%20Sem_2_V11.pdf)
 
    [Consultar proyecto de referencia](https://joalcasta-uv.github.io/so-proyecto-final-demo/sprint-1.html)
-   
+
    [Consultar guía PDF](https://campusvirtual.univalle.edu.co/moodle/pluginfile.php/5371014/mod_resource/content/1/2.%20Guia_Particionamiento_y_Sistemas_de_Archivos.pdf)
 2. **Lo que investigamos y adaptamos:** Investigamos el proceso de instalación de Linux Mint 22.3 Cinnamon en una máquina virtual utilizando Oracle VirtualBox. También consultamos información sobre los requisitos de hardware, la asignación de memoria RAM y procesadores, la configuración gráfica y el particionado manual del disco.
 3. **Evidencias:** los cinco puntos siguientes.
