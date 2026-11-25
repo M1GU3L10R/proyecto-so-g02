@@ -1,5 +1,207 @@
 ---
 ---
-$header-bg-color: #C8102E;
+$header-bg-color: #8c0017;
 $header-bg-color-secondary: #C8102E;
 @import "{{ site.theme }}";
+
+$rojo: #C8102E;
+$rojo-oscuro: #8E0B21;
+$texto: #1f2933;
+$gris-suave: #f6f6f7;
+$borde: #e3e3e6;
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: $texto;
+  background: #ffffff;
+}
+
+/* Encabezado */
+.page-header {
+  padding: 3.5rem 1.5rem 3rem;
+  border-bottom: 6px solid $rojo-oscuro;
+}
+.project-name {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+.project-tagline {
+  font-weight: 400;
+  opacity: 0.95;
+}
+.page-header .btn {
+  background: #ffffff;
+  color: $rojo;
+  border: none;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 0.6rem 1.4rem;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.page-header .btn:hover {
+  background: $gris-suave;
+  transform: translateY(-2px);
+}
+
+/* Contenido */
+.main-content {
+  max-width: 56rem;
+  padding: 2.5rem 1.5rem 3rem;
+  line-height: 1.7;
+  word-wrap: break-word;
+}
+.main-content h1 {
+  display: none;
+}
+.main-content h2 {
+  margin-top: 2.4rem;
+  padding-bottom: 0.4rem;
+  color: $rojo-oscuro;
+  border-bottom: 2px solid $borde;
+  position: relative;
+}
+.main-content h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 64px;
+  height: 2px;
+  background: $rojo;
+}
+.main-content h3 {
+  color: $texto;
+  margin-top: 1.8rem;
+}
+.main-content a {
+  color: $rojo;
+  font-weight: 500;
+}
+.main-content a:hover {
+  color: $rojo-oscuro;
+}
+
+/* Tablas */
+.main-content table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid $borde;
+  border-radius: 10px;
+  margin: 1.2rem 0;
+}
+.main-content table th {
+  background: $rojo;
+  color: #ffffff;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.7rem 1rem;
+  border: none;
+}
+.main-content table td {
+  padding: 0.65rem 1rem;
+  border: none;
+  border-top: 1px solid $borde;
+}
+.main-content table tbody tr:nth-child(even) td {
+  background: $gris-suave;
+}
+
+/* Menu de navegacion (lista con {: .menu}) */
+.main-content ul.menu {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 2rem;
+}
+.main-content ul.menu li {
+  margin: 0 0 0.5rem;
+  padding: 0;
+}
+.main-content ul.menu li a {
+  display: block;
+  padding: 0.75rem 1.1rem;
+  border: 1px solid $borde;
+  border-left: 5px solid $rojo;
+  border-radius: 8px;
+  background: #ffffff;
+  color: $texto;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+}
+.main-content ul.menu li a:hover {
+  background: $gris-suave;
+  border-left-color: $rojo-oscuro;
+  transform: translateX(4px);
+}
+
+/* Boton volver al inicio */
+.main-content a.volver {
+  display: inline-block;
+  margin: 0 0 1.2rem;
+  padding: 0.4rem 1rem;
+  border: 1px solid $rojo;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+.main-content a.volver:hover {
+  background: $rojo;
+  color: #ffffff;
+}
+
+/* Imagenes y codigo */
+.main-content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1rem 0 0.4rem;
+  border: 1px solid $borde;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+.main-content pre,
+.main-content code {
+  border-radius: 8px;
+}
+.main-content pre {
+  background: #1f2933;
+  color: #f1f3f5;
+  padding: 1rem 1.2rem;
+  border: none;
+}
+.main-content pre code {
+  background: transparent;
+  color: inherit;
+}
+.main-content p code,
+.main-content li code {
+  background: $gris-suave;
+  color: $rojo-oscuro;
+  padding: 0.1rem 0.4rem;
+}
+.main-content hr {
+  border: none;
+  border-top: 2px solid $borde;
+  margin: 2rem 0;
+}
+.main-content blockquote {
+  border-left: 5px solid $rojo;
+  background: $gris-suave;
+  color: $texto;
+  border-radius: 0 8px 8px 0;
+}
+
+/* Pie */
+.site-footer {
+  border-top: 1px solid $borde;
+  color: #6b7280;
+}
+
+@media screen and (max-width: 42em) {
+  .page-header { padding: 2.2rem 1rem; }
+  .main-content { padding: 1.5rem 1rem 2rem; }
+}

@@ -1,6 +1,6 @@
 # Sprint 1 · Montaje
 
-[Volver al inicio](./)
+[Volver al inicio](./){: .volver}
 
 ## Video (máximo 3 minutos)
 

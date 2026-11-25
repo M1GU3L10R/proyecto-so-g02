@@ -1,6 +1,6 @@
 # Sprint 0 · Distribuciones y ficha
 
-[Volver al inicio](./)
+[Volver al inicio](./){: .volver}
 
 Repositorio público con la carpeta `plan`, el plan de trabajo y la ficha de versión. Este sprint no lleva video.
 
@@ -32,3 +32,4 @@ Resumen de las tres distribuciones (detalle completo en la [ficha de versión](p
 1. **Miguel Angel Romero:** Coordinación + VMs y red
 2. **Faver Andres Ibarguen:** Scripts y procesos + Docker
 3. **Luis Felipe Galindo:** Seguridad + sitio y videos
+

@@ -1,6 +1,6 @@
 # Sprint 2 · Servicios
 
-[Volver al inicio](./)
+[Volver al inicio](./){: .volver}
 
 ## Video (máximo 4 minutos)
 

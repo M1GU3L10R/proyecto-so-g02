@@ -1,6 +1,6 @@
 # Sprint 3 · Cierre
 
-[Volver al inicio](./)
+[Volver al inicio](./){: .volver}
 
 ## Video (máximo 5 minutos)
 
@@ -19,3 +19,4 @@ Cada punto lleva: qué hicimos, los comandos, la captura y una explicación brev
 ## Errores y soluciones
 
 COMPLETAR
+

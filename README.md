@@ -36,9 +36,10 @@ El objetivo del Sprint 0 es lograr organizarnos como equipo, formar los espacios
 - [Conclusiones](conclusiones.md)
 - [Declaración de uso de IA](ia.md)
 - [Repositorio en GitHub](https://github.com/M1GU3L10R/proyecto-so-g02)
+{: .menu}
 
 ## Avance
 - [x] Sprint 0 · Arranque
-- [ ] Sprint 1 · Montaje
+- [x] Sprint 1 · Montaje
 - [ ] Sprint 2 · Servicios
 - [ ] Sprint 3 · Cierre
