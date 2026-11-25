@@ -24,31 +24,70 @@ Cuando tengan el video, borren la línea de arriba y pegan aquí el código de I
 
 **Qué hicimos:** <mark>COMPLETAR</mark> (particionado manual con `/`, swap y `/home`; dos navegadores y dos editores; una frase por partición con la razón de su tamaño)
 
-**Avance hasta ahora**
+### Paso 1. Instalación de recursos
 
 ![ISO de Linux Mint 22.3 y VirtualBox en el escritorio](img/s1-iso-y-virtualbox.png)
 
-ISO descargada: `linuxmint-22.3-cinnamon-64bit.iso`.
+ISO descargada (`linuxmint-22.3-cinnamon-64bit.iso`) y VirtualBox instalado. <mark>COMPLETAR</mark> (de dónde se descargaron y qué versión de VirtualBox se usó)
+
+### Paso 2. Creación de la máquina virtual
+
+**2.1 Asignación de nombre**
 
 ![Asistente de VirtualBox con el nombre g02-grafica](img/s1-grafica-nombre-vm.png)
 
-VM creada con el nombre `g02-grafica`.
+VM creada con el nombre `g02-grafica` y la ISO de Linux Mint. <mark>COMPLETAR</mark>
+
+**2.2 Especificaciones de hardware**
 
 ![Hardware de la VM: 4096 MB de RAM, 2 CPU y 25 GB de disco](img/s1-grafica-hardware.png)
 
 Hardware: 4096 MB de RAM, 2 CPU y 25 GB de disco. Motivo de la RAM: <mark>COMPLETAR</mark>
 
+### Paso 3. Configuración de la pantalla
+
 ![Configuración de pantalla: 128 MB de video y VBoxSVGA](img/s1-grafica-pantalla.png)
 
-Pantalla: 128 MB de memoria de video y controlador VBoxSVGA.
+Pantalla: 128 MB de memoria de video y controlador VBoxSVGA. <mark>COMPLETAR</mark> (por qué se cambió)
+
+### Paso 4. Editor de particiones durante la instalación
+
+![Configuración de Partcionamiento de la maquina virtual](img/s1-grafica-particiones.jpeg)
+
+### Paso 5. Particiones verificadas en la terminal
 
 **Comandos:**
 
 ```
-COMPLETAR (lsblk, df -h y cat /etc/fstab, con prompt y date)
+date && lsblk
+df -h
+cat /etc/fstab
 ```
 
-**Explicación de cada partición:** <mark>COMPLETAR</mark>
+![Terminal de miguel@g02-grafica con date, lsblk, df -h y cat /etc/fstab](img/s1-grafica-terminal.png)
+
+Particiones creadas: `/` (13 GB), swap (1,9 GB), `/home` (8,4 GB) y `/boot/efi` (488 MB).
+
+**Explicación de cada partición (razón del tamaño):**
+
+1. `/`: <mark>COMPLETAR</mark>
+2. swap: <mark>COMPLETAR</mark>
+3. `/home`: <mark>COMPLETAR</mark>
+4. `/boot/efi`: <mark>COMPLETAR</mark>
+
+### Paso 6. Dos navegadores y dos editores
+
+**Comando:**
+
+```
+sudo apt update && sudo apt install -y chromium gedit
+```
+
+![Terminal con el comando para instalar Chromium y gedit](img/s1-grafica-instalar-programas.png)
+
+![Escritorio con Firefox, Chromium, gedit y nano abiertos a la vez](img/s1-grafica-escritorio.png)
+
+Navegadores: Firefox y Chromium. Editores: gedit y nano. <mark>COMPLETAR</mark> (cuáles venían instalados y cuáles se instalaron)
 
 ---
 
