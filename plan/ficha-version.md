@@ -19,87 +19,98 @@ Ficha de verificación de las tres distribuciones del proyecto. Fecha de consult
 
 1. **Versión elegida y fecha de lanzamiento**
 
-   Linux Mint 22.3 «Zena», lanzada en enero de 2026. Día exacto: <mark>COMPLETAR</mark>
+   Linux Mint 22.3 «Zena», lanzada el 13 de enero de 2026.
 
-   Enlace: <mark>COMPLETAR</mark>
+   Enlace: [://linuxmint.com](https://://linuxmint.com)
 
 2. **Hasta cuándo recibe actualizaciones de seguridad**
 
-   Hasta abril de 2029, porque es una versión LTS basada en Ubuntu 24.04.
-
-   Enlace: [linuxmint.com/rel_zena_whatsnew.php](https://linuxmint.com/rel_zena_whatsnew.php)
+   Hasta abril de 2029, porque es una versión LTS basada en Ubuntu 24.04.  
+   
+   Enlace: [://linuxmint.com](https://://linuxmint.com)
 
 3. **Requisitos de hardware y si funciona en VirtualBox**
 
-   Requisitos mínimos: <mark>COMPLETAR</mark>. Funciona en VirtualBox: <mark>COMPLETAR</mark>
+   Requisitos mínimos: 2 GB de RAM (4 GB recomendados), 20 GB de espacio en disco (100 GB recomendados) y resolución de 1024×768.  
+   Funciona en VirtualBox: Sí, funciona en VirtualBox.  
 
-   Enlace: <mark>COMPLETAR</mark>
+   Enlace: [://linuxmint.com](https://://linuxmint.com)
 
 4. **Si el instalador permite el particionado manual**
 
-   <mark>COMPLETAR</mark> (Sí o No, y cómo se llama la opción).
+   Sí, el instalador permite el particionado manual seleccionando la opción «Más opciones» (en inglés, *Something else*) en el paso de *Tipo de instalación*.  
 
-   Enlace: <mark>COMPLETAR</mark>
+   Enlace: [linuxmint-installation-guide.readthedocs.io](https://readthedocs.io)
 
 5. **Guía oficial para instalar Docker Engine en esa familia**
 
-   Docker documenta Ubuntu. Mint es derivada de Ubuntu y no figura como plataforma verificada, así que se adapta la guía de Ubuntu.
+   Docker documenta Ubuntu. Mint es derivada de Ubuntu y no figura como plataforma verificada, así que se adapta la guía de Ubuntu.  
 
-   Enlace: [docs.docker.com/engine/install/ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+   Enlace: [://docker.com](https://://docker.com/)
 
 6. **Imagen base del Dockerfile para esa versión**
 
    No aplica a la VM gráfica.
 
+---
+
 ## Rocky Linux · VM de consola
 
 1. **Versión elegida y fecha de lanzamiento**
 
-   Rocky Linux 10.3 «Red Quartz», lanzada el 16/11/2026.
+   Rocky Linux 10.3 «Red Quartz», lanzada el 16/11/2026.  
 
-   Enlace: [rockylinux.org](https://rockylinux.org/news/rocky-linux-10-3-ga-release)
+   Enlace: [rockylinux.org](https://rockylinux.org)
 
 2. **Hasta cuándo recibe actualizaciones de seguridad**
 
-   Hasta 2035. Fecha exacta: <mark>COMPLETAR</mark>
+   Hasta 2035.  
+   Fecha exacta: 31 de mayo de 2035 (31/05/2035) (el soporte activo/general finaliza el 31/05/2030). 
 
-   Enlace: [docs.rockylinux.org/10/releases](https://docs.rockylinux.org/10/releases/)
+   Enlace: [docs.rockylinux.org/10/releases](https://rockylinux.org)
 
 3. **Requisitos de hardware y si funciona en VirtualBox**
 
-   Requiere procesador x86-64-v3. RAM y disco mínimos: <mark>COMPLETAR</mark>. Funciona en VirtualBox: <mark>COMPLETAR</mark>
+   Requiere procesador x86-64-v3.  
+   RAM y disco mínimos: 2 GB de RAM (1 GB en instalación mínima de servidor / modo texto) y 10 GB de disco (20 GB recomendados). 
 
-   Enlace: [notas de la versión 10.3](https://docs.rockylinux.org/release_notes/10_3/)
+   Funciona en VirtualBox: Sí, funciona en VirtualBox siempre que la CPU física del anfitrión soporte instrucciones x86-64-v3 (AVX, AVX2, BMI1/2, FMA) y el hipervisor las exponga a la máquina virtual.  
+
+   Enlace: [docs.rockylinux.org/10/guides/minimum_hardware_requirements](https://rockylinux.org)
+
 
 4. **Si el instalador permite el particionado manual**
 
-   <mark>COMPLETAR</mark> (opción «Personalizada»: confirmar en la documentación).
+   Sí, el instalador (Anaconda) permite el particionado manual entrando en *Destino de la instalación* (*Installation Destination*) y seleccionando la opción «Personalizada» (*Custom*).  
 
-   Enlace: <mark>COMPLETAR</mark>
+   Enlace: [docs.rockylinux.org/10/guides/installation](https://rockylinux.org)
+
 
 5. **Guía oficial para instalar Docker Engine en esa familia**
 
-   Docker no lista Rocky como plataforma verificada. Se usa la guía de CentOS (familia RHEL) y se documenta como procedimiento alternativo.
+    Docker no lista Rocky como plataforma verificada. Se usa la guía de CentOS (familia RHEL) y se documenta como procedimiento alternativo.  
 
-   Enlace: [docs.docker.com/engine/install/centos](https://docs.docker.com/engine/install/centos/)
+   Enlace: [://docker.com](https://://docker.com/)
 
 6. **Imagen base del Dockerfile para esa versión**
 
    No aplica (la imagen base del grupo es Debian).
 
+---
+
 ## Debian · imagen base del Dockerfile
 
 1. **Versión elegida y fecha de lanzamiento**
 
-   Debian 13.7 «trixie», publicada el 12/09/2026.
+   Debian 13.7 «trixie», publicada el 12/09/2026.  
 
-   Enlace: [debian.org](https://www.debian.org/News/2026/20260912.en.html)
+   Enlace: [debian.org](https://debian.org)
 
 2. **Hasta cuándo recibe actualizaciones de seguridad**
 
-   <mark>COMPLETAR</mark>
+   Soporte oficial de seguridad de Debian hasta el 9 de agosto de 2028 (09/08/2028) y soporte extendido (Debian LTS) hasta el 30 de junio de 2030 (30/06/2030).  
 
-   Enlace: [debian.org/releases](https://www.debian.org/releases/)
+   Enlace: [debian.org/releases](https://debian.org)
 
 3. **Requisitos de hardware y si funciona en VirtualBox**
 
@@ -111,14 +122,15 @@ Ficha de verificación de las tres distribuciones del proyecto. Fecha de consult
 
 5. **Guía oficial para instalar Docker Engine en esa familia**
 
-   <mark>COMPLETAR</mark> (Debian aparece en la lista oficial de Docker).
+   Debian cuenta con soporte oficial y documentación directa en Docker Engine (compatible con las arquitecturas `amd64`, `arm64`, `armhf`, `ppc64le` y `s390x` mediante el repositorio `apt` oficial de Docker).  
 
-   Enlace: [docs.docker.com/engine/install/debian](https://docs.docker.com/engine/install/debian/)
+   Enlace: [://docker.com](https://://docker.com/)
+
 
 6. **Imagen base del Dockerfile para esa versión**
 
-   Etiqueta a usar: <mark>COMPLETAR</mark> (por ejemplo `trixie`).
-
-   Enlace: [hub.docker.com/_/debian](https://hub.docker.com/_/debian)
+   Etiqueta a usar: `debian:trixie`, `debian:13.7` o su variante reducida `debian:trixie-slim` / `debian:13.7-slim`. 
+    
+   Enlace: [://docker.com](https://://docker.com)
 
 
