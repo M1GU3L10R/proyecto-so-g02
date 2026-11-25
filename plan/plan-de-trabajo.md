@@ -47,6 +47,4 @@
 2. **Faver Andrés Ibarguen:** <mark>COMPLETAR</mark>
 3. **Luis Felipe Galindo:** <mark>COMPLETAR</mark>
 
-## Participación
 
-Si algún integrante deja de participar, se anota aquí con la fecha.
