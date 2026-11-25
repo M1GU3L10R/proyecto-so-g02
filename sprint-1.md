@@ -44,6 +44,7 @@ ISO descargada (`linuxmint-22.3-cinnamon-64bit.iso`) y VirtualBox instalado desd
 
 VM creada con el nombre `g02-grafica` y la ISO de Linux Mint 22.3 Cinnamon de 64 bits.
 
+
 **2.2 Especificaciones de hardware**
 
 ![Hardware de la VM: 4096 MB de RAM, 2 CPU y 25 GB de disco](img/s1-grafica-hardware.png)
@@ -69,6 +70,7 @@ Se utilizó esta configuración para proporcionar los recursos gráficos necesar
 ### Paso 4. Editor de particiones durante la instalación
 
 ![Configuración de Partcionamiento de la maquina virtual](img/s1-grafica-particiones.jpeg)
+
 
 ### Paso 5. Particiones verificadas en la terminal
 
@@ -154,10 +156,18 @@ cat /etc/fstab
 
 ### Paso 1. Verificación de IP y pruebas de conectividad (ping)
 
+*Verificación de IP:*
+
 ![Verificación de IP consola](img/ip-vm-consola.png)
 
-![Verificación de IP Grafica](img/ip-vm-grafica.png)
+![Verificación de IP grafica](img/ip-vm-grafica.png)
 
+
+*Pruebas de conectividad:*
+
+![Pruebas de conectividad consola](img/ping-VM-consola.png)
+
+![Pruebas de conectividad grafica](img/ping-VM-grafica.png)
 
 ---
 
