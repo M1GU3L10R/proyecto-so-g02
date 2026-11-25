@@ -1,4 +1,12 @@
-theme: jekyll-theme-cayman
+# Sin "theme": ahora el diseño lo controlamos nosotros (carpetas _layouts, _includes y assets)
 lang: es
 title: Proyecto Final · Sistemas Operativos
 description: Universidad del Valle · Semestre 2026-2 · Grupo 02
+repo_url: https://github.com/M1GU3L10R/proyecto-so-g02
+
+# Todas las páginas usan el mismo marco (_layouts/default.html)
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default

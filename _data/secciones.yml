@@ -1,0 +1,13 @@
+# Páginas que no son sprints (salen en la portada y en el menú)
+- titulo: Cuadro comparativo del instalador
+  corto: Instalador
+  resumen: Las tres distribuciones frente a frente.
+  url: instalador.html
+- titulo: Conclusiones
+  corto: Conclusiones
+  resumen: Lo que aprendió cada integrante.
+  url: conclusiones.html
+- titulo: Declaración de uso de IA
+  corto: IA
+  resumen: Cómo usamos la inteligencia artificial.
+  url: ia.html

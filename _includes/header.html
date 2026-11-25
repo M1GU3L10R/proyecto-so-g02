@@ -1,0 +1,16 @@
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="{{ '/' | relative_url }}"><span class="brand-dot"></span>SO · Grupo 02</a>
+    <nav class="topnav">
+      {% for s in site.data.sprints %}
+        {% capture ruta %}/{{ s.url }}{% endcapture %}
+        <a href="{{ s.url | relative_url }}"{% if page.url == ruta %} class="activo"{% endif %}>Sprint {{ s.numero }}</a>
+      {% endfor %}
+      {% for p in site.data.secciones %}
+        {% capture ruta %}/{{ p.url }}{% endcapture %}
+        <a href="{{ p.url | relative_url }}"{% if page.url == ruta %} class="activo"{% endif %}>{{ p.corto }}</a>
+      {% endfor %}
+      <a href="{{ site.repo_url }}" class="nav-repo">GitHub</a>
+    </nav>
+  </div>
+</header>

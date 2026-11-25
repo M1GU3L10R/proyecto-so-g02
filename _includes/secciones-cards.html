@@ -1,0 +1,14 @@
+<div class="sprint-grid">
+{% for p in site.data.secciones %}
+  <a class="sprint-card" href="{{ p.url | relative_url }}">
+    <span class="sprint-num">Documento</span>
+    <strong>{{ p.titulo }}</strong>
+    <p>{{ p.resumen }}</p>
+  </a>
+{% endfor %}
+  <a class="sprint-card" href="{{ site.repo_url }}">
+    <span class="sprint-num">Código</span>
+    <strong>Repositorio en GitHub</strong>
+    <p>Todo el trabajo del grupo, commit por commit.</p>
+  </a>
+</div>

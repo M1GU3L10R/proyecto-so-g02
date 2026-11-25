@@ -1,0 +1,10 @@
+<div class="sprint-grid">
+{% for s in site.data.sprints %}
+  <a class="sprint-card estado-{{ s.estado | replace: ' ', '-' }}" href="{{ s.url | relative_url }}">
+    <span class="sprint-num">Sprint {{ s.numero }}</span>
+    <strong>{{ s.titulo }}</strong>
+    <p>{{ s.resumen }}</p>
+    <em class="sprint-estado">{{ s.estado }}</em>
+  </a>
+{% endfor %}
+</div>

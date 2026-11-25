@@ -1,0 +1,22 @@
+# MODELO: aquí viven los datos de los sprints.
+# estado puede ser: hecho | en curso | pendiente
+- numero: 0
+  titulo: Arranque
+  resumen: Distribuciones elegidas, plan de trabajo y ficha de versión.
+  estado: hecho
+  url: sprint-0.html
+- numero: 1
+  titulo: Montaje
+  resumen: Instalación de las máquinas virtuales con evidencias.
+  estado: hecho
+  url: sprint-1.html
+- numero: 2
+  titulo: Servicios
+  resumen: Usuarios, firewall, SSH, scripts, procesos y Docker Engine.
+  estado: pendiente
+  url: sprint-2.html
+- numero: 3
+  titulo: Cierre
+  resumen: Dockerfile, Docker Hub, Kubernetes y sitio web.
+  estado: pendiente
+  url: sprint-3.html

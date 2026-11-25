@@ -22,24 +22,16 @@ El objetivo del Sprint 0 es lograr organizarnos como equipo, formar los espacios
 
 ## Nuestra combinación
 
-| Linux gráfico | Linux consola | Imagen base del Dockerfile |
-|---------------|---------------|----------------------------|
-| Linux Mint    | Rocky Linux   | Debian                     |
+<div class="tarjetas">
+<div class="tarjeta"><span>Linux gráfico</span><strong>Linux Mint</strong></div>
+<div class="tarjeta"><span>Linux consola</span><strong>Rocky Linux</strong></div>
+<div class="tarjeta"><span>Imagen base del Dockerfile</span><strong>Debian</strong></div>
+</div>
 
-## Navegación
+## Sprints
 
-- [Sprint 0 · Distribuciones y ficha](sprint-0.md)
-- [Sprint 1 · Montaje](sprint-1.md)
-- [Sprint 2 · Servicios](sprint-2.md)
-- [Sprint 3 · Cierre](sprint-3.md)
-- [Cuadro comparativo del instalador](instalador.md)
-- [Conclusiones](conclusiones.md)
-- [Declaración de uso de IA](ia.md)
-- [Repositorio en GitHub](https://github.com/M1GU3L10R/proyecto-so-g02)
-{: .menu}
+{% include sprint-cards.html %}
 
-## Avance
-- [x] Sprint 0 · Arranque
-- [x] Sprint 1 · Montaje
-- [ ] Sprint 2 · Servicios
-- [ ] Sprint 3 · Cierre
+## Documentos del proyecto
+
+{% include secciones-cards.html %}

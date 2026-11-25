@@ -1,0 +1,17 @@
+{% assign hechos = site.data.sprints | where: "estado", "hecho" | size %}
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-etiqueta">Universidad del Valle · Semestre 2026-2 · Grupo 02</span>
+    <h1>Proyecto Final<br><span>Sistemas Operativos</span></h1>
+    <p class="hero-texto">Instalamos, configuramos y automatizamos tres distribuciones Linux, y las llevamos hasta Docker y Kubernetes.</p>
+    <div class="hero-botones">
+      <a class="btn-principal" href="#sprints">Ver los sprints</a>
+      <a class="btn-secundario" href="{{ site.repo_url }}">Repositorio</a>
+    </div>
+    <div class="hero-cifras">
+      <div><strong>{{ hechos }}/{{ site.data.sprints | size }}</strong><span>sprints listos</span></div>
+      <div><strong>3</strong><span>integrantes</span></div>
+      <div><strong>3</strong><span>distribuciones</span></div>
+    </div>
+  </div>
+</section>
