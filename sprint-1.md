@@ -111,37 +111,45 @@ Finalmente, abrimos simultáneamente Firefox, Chromium, Nano y gedit para compro
 ---
 ## 2. VM de consola (g02-consola)
 
-**Qué hicimos:** <mark>COMPLETAR</mark> (disco de 25 GB y 2 CPU; particionado manual con `/`, swap, `/home` y `/var`; make, rsync, curl, git y wget)
+**Qué hicimos:** Creamos una máquina virtual llamada `g02-consola` en Oracle VirtualBox configurada con 2 procesadores y un disco virtual de 25 GB. Realizamos un particionado manual asignando espacios independientes para el sistema raíz (`/`), la memoria de intercambio (`swap`), los archivos personales (`/home`) y los datos variables/registros del sistema (`/var`). Finalmente, verificamos las particiones desde la consola e instalamos las utilidades `make`, `rsync`, `curl`, `git` y `wget`.
+
+### Paso 1. Creación y hardware de la máquina virtual
+
+![Configuración de la VM g02-consola: 2 CPU y 25 GB de disco](img/s1-consola-hardware.png)
+
+Asignamos los recursos de hardware a la máquina virtual `g02-consola`:
+
+- Procesadores: 2 CPU.
+- Disco duro virtual: 25 GB.
+- Memoria RAM: COMPLETAR (ej. 2048 MB o 4096 MB).
+
+### Paso 2. Particiones verificadas en la consola
 
 **Comandos:**
 
-```
-COMPLETAR
-```
-
-**Captura:** <mark>COMPLETAR</mark>
-
-**Explicación de cada partición:** <mark>COMPLETAR</mark>
+date && lsblk
+df -h
+cat /etc/fstab
 
 ---
 
 ## 3. Red
 
-**Qué hicimos:** <mark>COMPLETAR</mark> (adaptador 1 en NAT y adaptador 2 en solo-anfitrión)
+**Qué hicimos:** Qué hicimos: Configuramos la conectividad de red de ambas máquinas virtuales (g02-grafica y g02-consola) en VirtualBox utilizando el Adaptador 1 en modo NAT (para salida a internet/repositorios) y el Adaptador 2 en modo Red solo-anfitrión (Host-only) (para comunicación interna entre el anfitrión y las VMs). Verificamos las direcciones IP asignadas y comprobamos la conectividad mediante ping en ambos sentidos.
 
-**Comandos:**
+Paso 1. Configuración de adaptadores de red
+Adaptador 1 (NAT): Permite que cada máquina virtual acceda a redes externas e internet a través de la IP del equipo anfitrión.
+
+Adaptador 2 (Solo-anfitrión): Crea una red privada aislada entre el sistema anfitrión y las máquinas virtuales para facilitar la comunicación local sin exponer servicios directamente a redes externas.
 
 ```
-COMPLETAR (ip a en cada VM y ping en los dos sentidos)
-```
-
-**Captura:** <mark>COMPLETAR</mark>
+Paso 2. Verificación de IP y pruebas de conectividad (ping)
 
 ---
 
 ## 4. SSH
 
-**Qué hicimos:** <mark>COMPLETAR</mark> (entrar por SSH desde g02-grafica a g02-consola)
+**Qué hicimos:** Verificamos/habilitamos el servicio SSH en g02-consola y realizamos la conexión remota desde g02-grafica hacia g02-consola a través de la red solo-anfitrión
 
 **Comandos:**
 
@@ -149,13 +157,13 @@ COMPLETAR (ip a en cada VM y ping en los dos sentidos)
 COMPLETAR
 ```
 
-**Captura:** <mark>COMPLETAR</mark>
+**prueba en la conexion ssh:** <mark>COMPLETAR</mark>
 
 ---
 
 ## 5. Instantáneas
 
-**Qué hicimos:** <mark>COMPLETAR</mark> (una por VM, llamada `instalacion-limpia`, con la VM apagada)
+**Qué hicimos:** Creamos una instantánea (snapshot) llamada instalacion-limpia en cada máquina virtual (g02-grafica y g02-consola) con las máquinas virtuales apagadas, para conservar un punto limpio de referencia antes de realizar cambios posteriores.
 
 **Captura:** <mark>COMPLETAR</mark>
 
@@ -163,4 +171,11 @@ COMPLETAR
 
 ## Errores y soluciones
 
-<mark>COMPLETAR</mark> (error, causa probable, solución aplicada y fuente con título, enlace y fecha de consulta)
+Error 1: COMPLETAR (nombre breve del error)
+Error: COMPLETAR (descripción del mensaje de error o fallo ocurrido).
+
+Causa probable: COMPLETAR (por qué ocurrió el problema).
+
+Solución aplicada: COMPLETAR (qué comandos, ajustes o pasos resolvieron el error).
+
+Fuente: COMPLETAR (Título de la fuente — Enlace — Consultado el DD/MM/AAAA).
