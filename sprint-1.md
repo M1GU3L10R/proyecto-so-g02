@@ -14,15 +14,15 @@ Cuando tengan el video, borren la línea de arriba y pegan aquí el código de I
 
 ## Referencia, adaptación y evidencias
 
-1. **Referencia del docente:** COMPLETAR (guías de la clase que usaron)
-2. **Lo que investigamos y adaptamos:** COMPLETAR
+1. **Referencia del docente:** <mark>COMPLETAR</mark> (guías de la clase que usaron)
+2. **Lo que investigamos y adaptamos:** <mark>COMPLETAR</mark>
 3. **Evidencias:** los cinco puntos de abajo
 
 ---
 
 ## 1. VM gráfica (g02-grafica)
 
-**Qué hicimos:** COMPLETAR (particionado manual con `/`, swap y `/home`; dos navegadores y dos editores; una frase por partición con la razón de su tamaño)
+**Qué hicimos:** <mark>COMPLETAR</mark> (particionado manual con `/`, swap y `/home`; dos navegadores y dos editores; una frase por partición con la razón de su tamaño)
 
 **Avance hasta ahora**
 
@@ -36,7 +36,7 @@ VM creada con el nombre `g02-grafica`.
 
 ![Hardware de la VM: 4096 MB de RAM, 2 CPU y 25 GB de disco](img/s1-grafica-hardware.png)
 
-Hardware: 4096 MB de RAM, 2 CPU y 25 GB de disco. Motivo de la RAM: COMPLETAR
+Hardware: 4096 MB de RAM, 2 CPU y 25 GB de disco. Motivo de la RAM: <mark>COMPLETAR</mark>
 
 ![Configuración de pantalla: 128 MB de video y VBoxSVGA](img/s1-grafica-pantalla.png)
 
@@ -48,13 +48,13 @@ Pantalla: 128 MB de memoria de video y controlador VBoxSVGA.
 COMPLETAR (lsblk, df -h y cat /etc/fstab, con prompt y date)
 ```
 
-**Explicación de cada partición:** COMPLETAR
+**Explicación de cada partición:** <mark>COMPLETAR</mark>
 
 ---
 
 ## 2. VM de consola (g02-consola)
 
-**Qué hicimos:** COMPLETAR (disco de 25 GB y 2 CPU; particionado manual con `/`, swap, `/home` y `/var`; make, rsync, curl, git y wget)
+**Qué hicimos:** <mark>COMPLETAR</mark> (disco de 25 GB y 2 CPU; particionado manual con `/`, swap, `/home` y `/var`; make, rsync, curl, git y wget)
 
 **Comandos:**
 
@@ -62,15 +62,15 @@ COMPLETAR (lsblk, df -h y cat /etc/fstab, con prompt y date)
 COMPLETAR
 ```
 
-**Captura:** COMPLETAR
+**Captura:** <mark>COMPLETAR</mark>
 
-**Explicación de cada partición:** COMPLETAR
+**Explicación de cada partición:** <mark>COMPLETAR</mark>
 
 ---
 
 ## 3. Red
 
-**Qué hicimos:** COMPLETAR (adaptador 1 en NAT y adaptador 2 en solo-anfitrión)
+**Qué hicimos:** <mark>COMPLETAR</mark> (adaptador 1 en NAT y adaptador 2 en solo-anfitrión)
 
 **Comandos:**
 
@@ -78,13 +78,13 @@ COMPLETAR
 COMPLETAR (ip a en cada VM y ping en los dos sentidos)
 ```
 
-**Captura:** COMPLETAR
+**Captura:** <mark>COMPLETAR</mark>
 
 ---
 
 ## 4. SSH
 
-**Qué hicimos:** COMPLETAR (entrar por SSH desde g02-grafica a g02-consola)
+**Qué hicimos:** <mark>COMPLETAR</mark> (entrar por SSH desde g02-grafica a g02-consola)
 
 **Comandos:**
 
@@ -92,18 +92,18 @@ COMPLETAR (ip a en cada VM y ping en los dos sentidos)
 COMPLETAR
 ```
 
-**Captura:** COMPLETAR
+**Captura:** <mark>COMPLETAR</mark>
 
 ---
 
 ## 5. Instantáneas
 
-**Qué hicimos:** COMPLETAR (una por VM, llamada `instalacion-limpia`, con la VM apagada)
+**Qué hicimos:** <mark>COMPLETAR</mark> (una por VM, llamada `instalacion-limpia`, con la VM apagada)
 
-**Captura:** COMPLETAR
+**Captura:** <mark>COMPLETAR</mark>
 
 ---
 
 ## Errores y soluciones
 
-COMPLETAR (error, causa probable, solución aplicada y fuente con título, enlace y fecha de consulta)
+<mark>COMPLETAR</mark> (error, causa probable, solución aplicada y fuente con título, enlace y fecha de consulta)

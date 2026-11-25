@@ -8,17 +8,17 @@ Video: pendiente.
 
 ## Puntos del sprint
 
-1. Usuarios y grupo: COMPLETAR
-2. sudo y permisos: COMPLETAR
-3. Firewall: COMPLETAR
-4. Llave SSH y actualización: COMPLETAR
-5. Script gráfico: COMPLETAR
-6. Script de consola: COMPLETAR
-7. Procesos: COMPLETAR
-8. Docker Engine: COMPLETAR
+1. Usuarios y grupo: <mark>COMPLETAR</mark>
+2. sudo y permisos: <mark>COMPLETAR</mark>
+3. Firewall: <mark>COMPLETAR</mark>
+4. Llave SSH y actualización: <mark>COMPLETAR</mark>
+5. Script gráfico: <mark>COMPLETAR</mark>
+6. Script de consola: <mark>COMPLETAR</mark>
+7. Procesos: <mark>COMPLETAR</mark>
+8. Docker Engine: <mark>COMPLETAR</mark>
 
 Cada punto lleva: qué hicimos, los comandos, la captura y una explicación breve.
 
 ## Errores y soluciones
 
-COMPLETAR
+<mark>COMPLETAR</mark>

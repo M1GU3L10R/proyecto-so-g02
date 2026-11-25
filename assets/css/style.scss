@@ -1,34 +1,41 @@
 ---
 ---
-$header-bg-color: #8c0017;
-$header-bg-color-secondary: #C8102E;
+$header-bg-color: #C8102E;
+$header-bg-color-secondary: #8E0B21;
 @import "{{ site.theme }}";
 
+$fondo: #0f1115;
+$tarjeta: #181b22;
+$tarjeta-2: #1f232c;
+$borde: #2c313c;
+$texto: #e6e8eb;
+$texto-suave: #9aa3b2;
 $rojo: #C8102E;
-$rojo-oscuro: #8E0B21;
-$texto: #1f2933;
-$gris-suave: #f6f6f7;
-$borde: #e3e3e6;
+$rojo-claro: #ff6b7f;
+$ambar: #ffd166;
 
+html, body {
+  background: $fondo;
+  color: $texto;
+  color-scheme: dark;
+}
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  color: $texto;
-  background: #ffffff;
 }
 
 /* Encabezado */
 .page-header {
   padding: 3.5rem 1.5rem 3rem;
-  border-bottom: 6px solid $rojo-oscuro;
+  border-bottom: 4px solid $rojo;
 }
 .project-name {
   font-weight: 700;
   letter-spacing: -0.5px;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+  color: #ffffff;
 }
 .project-tagline {
   font-weight: 400;
-  opacity: 0.95;
+  color: #ffe3e7;
 }
 .page-header .btn {
   background: #ffffff;
@@ -37,10 +44,10 @@ body {
   font-weight: 600;
   border-radius: 999px;
   padding: 0.6rem 1.4rem;
-  transition: transform 0.15s ease, background 0.15s ease;
+  transition: transform 0.15s ease;
 }
 .page-header .btn:hover {
-  background: $gris-suave;
+  background: #f1f1f1;
   transform: translateY(-2px);
 }
 
@@ -49,38 +56,31 @@ body {
   max-width: 56rem;
   padding: 2.5rem 1.5rem 3rem;
   line-height: 1.7;
+  color: $texto;
   word-wrap: break-word;
 }
-.main-content h1 {
-  display: none;
-}
+.main-content h1 { display: none; }
 .main-content h2 {
   margin-top: 2.4rem;
   padding-bottom: 0.4rem;
-  color: $rojo-oscuro;
-  border-bottom: 2px solid $borde;
+  color: #ffffff;
+  border-bottom: 1px solid $borde;
   position: relative;
 }
 .main-content h2::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -2px;
+  bottom: -1px;
   width: 64px;
-  height: 2px;
+  height: 3px;
   background: $rojo;
 }
-.main-content h3 {
-  color: $texto;
-  margin-top: 1.8rem;
-}
-.main-content a {
-  color: $rojo;
-  font-weight: 500;
-}
-.main-content a:hover {
-  color: $rojo-oscuro;
-}
+.main-content h3 { color: #ffffff; margin-top: 1.8rem; }
+.main-content p, .main-content li { color: $texto; }
+.main-content strong { color: #ffffff; }
+.main-content a { color: $rojo-claro; font-weight: 500; }
+.main-content a:hover { color: #ffffff; }
 
 /* Tablas */
 .main-content table {
@@ -90,8 +90,9 @@ body {
   border-collapse: separate;
   border-spacing: 0;
   border: 1px solid $borde;
-  border-radius: 10px;
+  border-radius: 12px;
   margin: 1.2rem 0;
+  background: $tarjeta;
 }
 .main-content table th {
   background: $rojo;
@@ -105,52 +106,120 @@ body {
   padding: 0.65rem 1rem;
   border: none;
   border-top: 1px solid $borde;
+  color: $texto;
 }
-.main-content table tbody tr:nth-child(even) td {
-  background: $gris-suave;
-}
+.main-content table tbody tr:nth-child(even) td { background: $tarjeta-2; }
 
-/* Menu de navegacion (lista con {: .menu}) */
+/* Listas numeradas como tarjetas */
+.main-content ol {
+  list-style: none;
+  counter-reset: item;
+  padding: 0;
+  margin: 1rem 0 1.5rem;
+}
+.main-content ol > li {
+  counter-increment: item;
+  position: relative;
+  background: $tarjeta;
+  border: 1px solid $borde;
+  border-radius: 12px;
+  padding: 0.9rem 1.2rem 0.9rem 3.6rem;
+  margin: 0 0 0.7rem;
+}
+.main-content ol > li::before {
+  content: counter(item);
+  position: absolute;
+  left: 1rem;
+  top: 0.9rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  line-height: 1.8rem;
+  text-align: center;
+  border-radius: 50%;
+  background: $rojo;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.main-content ol > li p { margin: 0.35rem 0; }
+.main-content ol > li > p:first-child,
+.main-content ol > li > strong:first-child { margin-top: 0; }
+
+/* Menu de navegacion */
 .main-content ul.menu {
   list-style: none;
   padding: 0;
   margin: 1rem 0 2rem;
 }
-.main-content ul.menu li {
-  margin: 0 0 0.5rem;
-  padding: 0;
-}
+.main-content ul.menu li { margin: 0 0 0.5rem; padding: 0; }
 .main-content ul.menu li a {
   display: block;
   padding: 0.75rem 1.1rem;
   border: 1px solid $borde;
   border-left: 5px solid $rojo;
-  border-radius: 8px;
-  background: #ffffff;
+  border-radius: 10px;
+  background: $tarjeta;
   color: $texto;
   font-weight: 500;
   text-decoration: none;
-  transition: background 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+  transition: background 0.15s ease, transform 0.15s ease;
 }
 .main-content ul.menu li a:hover {
-  background: $gris-suave;
-  border-left-color: $rojo-oscuro;
+  background: $tarjeta-2;
   transform: translateX(4px);
 }
 
-/* Boton volver al inicio */
+/* Tarjetas de distribuciones */
+.main-content .tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.9rem;
+  margin: 1.2rem 0 1.8rem;
+}
+.main-content .tarjeta {
+  background: $tarjeta;
+  border: 1px solid $borde;
+  border-top: 4px solid $rojo;
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+}
+.main-content .tarjeta span {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $texto-suave;
+}
+.main-content .tarjeta strong {
+  display: block;
+  font-size: 1.25rem;
+  margin: 0.2rem 0;
+  color: #ffffff;
+}
+.main-content .tarjeta small { color: $texto-suave; font-size: 0.9rem; }
+
+/* Boton volver */
 .main-content a.volver {
   display: inline-block;
-  margin: 0 0 1.2rem;
+  margin: 0 0.5rem 1.2rem 0;
   padding: 0.4rem 1rem;
   border: 1px solid $rojo;
   border-radius: 999px;
   font-size: 0.9rem;
   text-decoration: none;
+  color: $rojo-claro;
 }
-.main-content a.volver:hover {
-  background: $rojo;
-  color: #ffffff;
+.main-content a.volver:hover { background: $rojo; color: #ffffff; }
+
+/* Pendientes */
+.main-content mark {
+  background: rgba(255, 209, 102, 0.14);
+  color: $ambar;
+  border: 1px dashed rgba(255, 209, 102, 0.55);
+  border-radius: 6px;
+  padding: 0.05rem 0.45rem;
+  font-size: 0.85em;
+  font-weight: 600;
 }
 
 /* Imagenes y codigo */
@@ -160,48 +229,37 @@ body {
   height: auto;
   margin: 1rem 0 0.4rem;
   border: 1px solid $borde;
-  border-radius: 10px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-}
-.main-content pre,
-.main-content code {
-  border-radius: 8px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
 }
 .main-content pre {
-  background: #1f2933;
+  background: #0a0c10;
   color: #f1f3f5;
+  border: 1px solid $borde;
+  border-radius: 10px;
   padding: 1rem 1.2rem;
-  border: none;
 }
-.main-content pre code {
-  background: transparent;
-  color: inherit;
-}
-.main-content p code,
-.main-content li code {
-  background: $gris-suave;
-  color: $rojo-oscuro;
+.main-content pre code { background: transparent; color: inherit; }
+.main-content p code, .main-content li code, .main-content td code {
+  background: $tarjeta-2;
+  color: $rojo-claro;
+  border-radius: 6px;
   padding: 0.1rem 0.4rem;
 }
-.main-content hr {
-  border: none;
-  border-top: 2px solid $borde;
-  margin: 2rem 0;
-}
+.main-content hr { border: none; border-top: 1px solid $borde; margin: 2rem 0; }
 .main-content blockquote {
-  border-left: 5px solid $rojo;
-  background: $gris-suave;
+  background: $tarjeta;
   color: $texto;
-  border-radius: 0 8px 8px 0;
+  border-left: 5px solid $rojo;
+  border-radius: 0 10px 10px 0;
 }
 
 /* Pie */
-.site-footer {
-  border-top: 1px solid $borde;
-  color: #6b7280;
-}
+.site-footer { border-top: 1px solid $borde; color: $texto-suave; }
+.site-footer-owner, .site-footer-credits { color: $texto-suave; }
 
 @media screen and (max-width: 42em) {
   .page-header { padding: 2.2rem 1rem; }
   .main-content { padding: 1.5rem 1rem 2rem; }
+  .main-content ol > li { padding-left: 3.2rem; }
 }

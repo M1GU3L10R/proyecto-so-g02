@@ -8,15 +8,15 @@ Video: pendiente.
 
 ## Puntos del sprint
 
-1. Dockerfile: COMPLETAR
-2. Contenedor: COMPLETAR
-3. Docker Hub: COMPLETAR
-4. Kubernetes: COMPLETAR
-5. Sitio web: COMPLETAR
+1. Dockerfile: <mark>COMPLETAR</mark>
+2. Contenedor: <mark>COMPLETAR</mark>
+3. Docker Hub: <mark>COMPLETAR</mark>
+4. Kubernetes: <mark>COMPLETAR</mark>
+5. Sitio web: <mark>COMPLETAR</mark>
 
 Cada punto lleva: qué hicimos, los comandos, la captura y una explicación breve.
 
 ## Errores y soluciones
 
-COMPLETAR
+<mark>COMPLETAR</mark>
 
