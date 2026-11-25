@@ -7,6 +7,7 @@ Universidad del Valle · Tecnología en Desarrollo de Software · Semestre 2026-
 El objetivo del Sprint 0 es lograr organizarnos como equipo, formar los espacios de trabajo como el repositorio en GitHub y verificar las fichas de versiones actuales de las tecnologias que utilizaremos
 
 ## Integrantes y lo que hizo cada uno
+
 | Integrante            | Usuario GitHub    | Rol                         |
 |-----------------------|-------------------|-----------------------------|
 | Miguel Angel Romero   | M1GU3L10R         | Coordinación + VMs y red    |
@@ -20,6 +21,7 @@ El objetivo del Sprint 0 es lograr organizarnos como equipo, formar los espacios
 3. **Luis Felipe Galindo:** redacción del plan de trabajo, asignación de roles y cronograma.
 
 ## Nuestra combinación
+
 | Linux gráfico | Linux consola | Imagen base del Dockerfile |
 |---------------|---------------|----------------------------|
 | Linux Mint    | Rocky Linux   | Debian                     |
