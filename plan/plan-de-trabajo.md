@@ -31,9 +31,9 @@
 
 ### Sprint 1
 
-1. **Miguel Angel Romero:** <mark>COMPLETAR</mark>
-2. **Faver Andrés Ibarguen:** <mark>COMPLETAR</mark>
-3. **Luis Felipe Galindo:** <mark>COMPLETAR</mark>
+1. **Miguel Angel Romero:** Se encargo de crear la estructura de la pagina, crear la maquina virtual grafica y montar las evidencias de la misma 
+2. **Faver Andrés Ibarguen:** Se encargo de crear la maquina virtual de consola y realizar las conexiones entre ellas con evidencia 
+3. **Luis Felipe Galindo:** Se encargo de mejorar la interfaz grafica de la pagina y organización de la información 
 
 ### Sprint 2
 
