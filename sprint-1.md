@@ -4,8 +4,9 @@
 
 ## Video
 
-[![▶ Ver Video Sprint 1](https://shields.io▶_Ver_Video_Sprint_1-YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be)
-
+<a href="https://youtu.be" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 12px 24px; background-color: #c1121f; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight: bold; font-family: sans-serif;">
+  ▶ Ver Video Sprint 1 en YouTube
+</a>
 
 ## Referencia, adaptación y evidencias
 
