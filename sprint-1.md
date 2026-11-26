@@ -4,13 +4,8 @@
 
 ## Video (máximo 3 minutos)
 
-Video: pendiente de grabar y subir a YouTube.
-
-<!--
-Cuando tengan el video, borren la línea de arriba y pegan aquí el código de Insertar de YouTube:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ID_DEL_VIDEO"
+<iframe width="560" height="315" src="https://youtu.be/gAaY7ngExcc"
  title="Sprint 1" frameborder="0" allowfullscreen></iframe>
--->
 
 ## Referencia, adaptación y evidencias
 
