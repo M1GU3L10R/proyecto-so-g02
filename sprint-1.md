@@ -4,7 +4,7 @@
 
 ## Video
 
-<a href="https://youtu.be" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 12px 24px; background-color: #c1121f; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight: bold; font-family: sans-serif;">
+<a href="[https://youtu.be](https://youtu.be/gAaY7ngExcc)" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 12px 24px; background-color: #c1121f; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight: bold; font-family: sans-serif;">
   ▶ Ver Video Sprint 1 en YouTube
 </a>
 
