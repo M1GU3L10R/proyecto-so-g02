@@ -4,7 +4,7 @@ Universidad del Valle · Tecnología en Desarrollo de Software · Semestre 2026-
 **Grupo 02**
 
 ## Objetivo
-El objetivo del Sprint 0 es lograr organizarnos como equipo, formar los espacios de trabajo como el repositorio en GitHub y verificar las fichas de versiones actuales de las tecnologias que utilizaremos
+Aplicar los conocimientos de Sistemas Operativos para instalar, configurar y administrar dos máquinas virtuales Linux en VirtualBox, y desplegar sobre ellas una imagen propia con Docker y Kubernetes, como base para el desarrollo y despliegue de software, documentando el proceso en un sitio web.
 
 ## Integrantes y lo que hizo cada uno
 
@@ -13,12 +13,6 @@ El objetivo del Sprint 0 es lograr organizarnos como equipo, formar los espacios
 | Miguel Angel Romero   | M1GU3L10R         | Coordinación + VMs y red    |
 | Faver Andres Ibarguen | faveribarguen-alt | Scripts y procesos + Docker |
 | Luis Felipe Galindo   | luis-FG-Dev       | Seguridad + sitio y videos  |
-
-**Sprint 0**
-
-1. **Miguel Angel Romero:** creación del repositorio en GitHub, estructura base de ramas y revisión de Pull Requests.
-2. **Faver Andres Ibarguen:** verificación de versiones y corrección de la ficha técnica.
-3. **Luis Felipe Galindo:** redacción del plan de trabajo, asignación de roles y cronograma.
 
 ## Nuestra combinación
 
