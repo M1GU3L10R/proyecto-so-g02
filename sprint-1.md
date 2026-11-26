@@ -4,11 +4,7 @@
 
 ## Video (máximo 3 minutos)
 
-<a href="https://youtu.be/gAaY7ngExcc" target="_blank" rel="noopener noreferrer" 
-   style="display: inline-block; padding: 10px 20px; background-color: #ff0000; color: #ffffff; text-decoration: none; border-radius: 5px; font-family: sans-serif; font-weight: bold;">
-  ▶ Ver Video Sprint 1 en YouTube
-</a>
-
+[![Video Prueba Sprint1](https://youtube.com)](https://youtu.be/gAaY7ngExcc)
 
 ## Referencia, adaptación y evidencias
 
