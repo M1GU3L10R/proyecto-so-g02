@@ -204,6 +204,16 @@ ssh faver@192.168.56.102
 
 ---
 
+## 6. Código de la Sprint
+
+**Qué hicimos:** Guardamos el código asignado (ND02-Q87V) en el archivo codigo_sprint1.txt dentro de nuestras dos máquinas virtuales y lo mostramos en pantalla junto con la fecha y hora del sistema (date), comprobando así la autenticidad de las VMs y su ejecución dentro del plazo de entrega..
+
+**Captura:**
+
+![Código Sprint](img/Sprint1_Codigo.png)
+
+---
+
 ## Errores y soluciones
 
 **Error 1:** 
