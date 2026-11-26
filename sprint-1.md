@@ -4,8 +4,10 @@
 
 ## Video (máximo 3 minutos)
 
-<iframe width="560" height="315" src="https://youtu.be/gAaY7ngExcc"
- title="Sprint 1" frameborder="0" allowfullscreen></iframe>
+<a href="https://youtu.be/gAaY7ngExcc" target="_blank" rel="noopener noreferrer">
+  Ver Video Prueba Sprint 1 en YouTube
+</a>
+
 
 ## Referencia, adaptación y evidencias
 
