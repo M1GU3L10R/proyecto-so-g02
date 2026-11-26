@@ -2,9 +2,10 @@
 
 [Volver al inicio](./){: .volver}
 
-## Video (máximo 3 minutos)
+## Video
 
-[![Video Prueba Sprint1](https://youtube.com)](https://youtu.be/gAaY7ngExcc)
+[![▶ Ver Video Sprint 1](https://shields.io▶_Ver_Video_Sprint_1-YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be)
+
 
 ## Referencia, adaptación y evidencias
 
