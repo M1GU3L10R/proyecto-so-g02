@@ -1,0 +1,58 @@
+{%- assign total = site.data.sprints | size -%}
+{%- assign hechos = site.data.sprints | where: "estado", "hecho" | size -%}
+{%- assign porcentaje = hechos | times: 100 | divided_by: total -%}
+{%- assign nodos = total | plus: 1 -%}
+{%- assign tramos = nodos | minus: 1 -%}
+{%- assign avance_linea = hechos | times: 100.0 | divided_by: tramos -%}
+{%- assign hora = site.data.proyecto.hora_cierre -%}
+{%- assign zona = site.data.proyecto.zona -%}
+{%- assign prox = nil -%}
+{%- for s in site.data.sprints -%}
+{%- if s.estado != 'hecho' and prox == nil -%}{%- assign prox = s -%}{%- endif -%}
+{%- endfor -%}
+{%- if prox -%}
+{%- capture prox_nombre %}Sprint {{ prox.numero }} · {{ prox.titulo }}{% endcapture -%}
+{%- assign prox_fecha_texto = prox.fecha_texto -%}
+{%- capture prox_objetivo %}{{ prox.fecha }}T{{ hora }}:00{{ zona }}{% endcapture -%}
+{%- else -%}
+{%- assign prox_nombre = site.data.proyecto.sustentacion.titulo -%}
+{%- assign prox_fecha_texto = site.data.proyecto.sustentacion.fecha_texto -%}
+{%- capture prox_objetivo %}{{ site.data.proyecto.sustentacion.fecha }}T00:00:00{{ zona }}{% endcapture -%}
+{%- endif -%}
+<div class="ruta">
+    <div class="hitos" style="--avance: {{ avance_linea }}%">
+        <div class="ruta-linea"><div class="ruta-progreso"></div></div>
+        {%- for s in site.data.sprints -%}
+        <a class="hito estado-{{ s.estado | replace: ' ', '-' }}{% if prox and s.numero == prox.numero %} hito-proximo{% endif %}" href="{{ s.url | relative_url }}">
+            <span class="hito-punto"></span>
+            <span class="hito-fecha">{{ s.fecha_texto }}</span>
+            <strong>Sprint {{ s.numero }}</strong>
+            <small>{{ s.titulo }}</small>
+        </a>
+        {%- endfor -%}
+        <div class="hito estado-pendiente{% unless prox %} hito-proximo{% endunless %}">
+            <span class="hito-punto"></span>
+            <span class="hito-fecha">{{ site.data.proyecto.sustentacion.fecha_texto }}</span>
+            <strong>{{ site.data.proyecto.sustentacion.titulo }}</strong>
+            <small>Prueba individual</small>
+        </div>
+    </div>
+
+    <div class="ruta-tarjetas">
+        <div class="ruta-tarjeta ruta-cuenta" data-objetivo="{{ prox_objetivo }}">
+            <span class="ruta-etiqueta">Próxima entrega</span>
+            <strong class="ruta-nombre">{{ prox_nombre }}</strong>
+            <span class="ruta-detalle">{{ prox_fecha_texto }}{% if prox %} · cierre 11:55 p. m.{% endif %}</span>
+            <div class="cuenta" id="cuenta" aria-live="off"></div>
+        </div>
+
+        <div class="ruta-tarjeta ruta-avance">
+            <div class="anillo" style="--p: {{ porcentaje }}"><span>{{ porcentaje }}%</span></div>
+            <div>
+                <span class="ruta-etiqueta">Avance del proyecto</span>
+                <strong class="ruta-nombre">{{ hechos }} de {{ total }} sprints</strong>
+                <span class="ruta-detalle">más la sustentación</span>
+            </div>
+        </div>
+    </div>
+</div>

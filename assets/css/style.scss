@@ -15,9 +15,11 @@ $texto: #e8eaed;
 $texto-suave: #9aa3b2;
 $fuente-titulos: "Space Grotesk", "Segoe UI", Roboto, Arial, sans-serif;
 $fuente-texto: "Inter", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+$fuente-codigo: "JetBrains Mono", ui-monospace, "Cascadia Code", Consolas, monospace;
+$alto-barra: 4.2rem;       // alto aproximado de la barra superior
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; color-scheme: dark; }
+html { scroll-behavior: smooth; scroll-padding-top: $alto-barra + 1rem; color-scheme: dark; }
 body {
   margin: 0;
   background: $fondo;
@@ -26,30 +28,37 @@ body {
   font-size: 16px;
   line-height: 1.7;
 }
+body.visor-abierto { overflow: hidden; }
 img { max-width: 100%; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}
 
-// ---------- Barra superior ----------
+// ============================================================
+// BARRA SUPERIOR
+// ============================================================
 .topbar {
   position: sticky;
   top: 0;
-  z-index: 10;
-  background: rgba(15, 17, 21, 0.85);
-  backdrop-filter: blur(10px);
+  z-index: 40;
+  background: rgba(15, 17, 21, 0.88);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid $borde;
 }
 .topbar-inner {
-  max-width: 64rem;
+  max-width: 76rem;
   margin: 0 auto;
-  padding: 0.7rem 1.5rem;
+  padding: 0.75rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 .brand {
   display: flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.6rem;
   font-family: $fuente-titulos;
   font-weight: 700;
   color: #fff;
@@ -63,32 +72,201 @@ img { max-width: 100%; }
   background: $rojo;
   box-shadow: 0 0 12px $rojo;
 }
-.topnav {
+.topnav { display: flex; align-items: center; gap: 0.9rem; }
+.nav-pill {
   display: flex;
-  gap: 0.2rem;
-  overflow-x: auto;
-  scrollbar-width: none;
+  align-items: center;
+  gap: 0.35rem;                       // separación entre botones
+  padding: 0.3rem;
+  border: 1px solid $borde;
+  border-radius: 999px;
+  background: rgba(23, 26, 33, 0.8);
 }
-.topnav::-webkit-scrollbar { display: none; }
-.topnav a {
+.nav-pill > a, .nav-boton, .nav-sub a {
+  font-family: $fuente-texto;
+  font-size: 0.92rem;
+  font-weight: 500;
   color: $texto-suave;
   text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 500;
-  padding: 0.35rem 0.75rem;
-  border-radius: 999px;
   white-space: nowrap;
   transition: background 0.15s ease, color 0.15s ease;
 }
-.topnav a:hover { color: #fff; background: $tarjeta-2; }
-.topnav a.activo { color: #fff; background: $rojo; }
-.topnav a.nav-repo { border: 1px solid $borde; }
+.nav-pill > a, .nav-boton {
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.nav-pill > a:hover, .nav-boton:hover { color: #fff; background: $tarjeta-2; }
+.nav-pill > a.activo, .nav-boton.activo { color: #fff; background: $rojo; }
+.flecha {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+}
+.nav-repo {
+  padding: 0.5rem 1.2rem;
+  border-radius: 999px;
+  background: $rojo;
+  color: #fff;
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.nav-repo:hover { background: #e0123a; transform: translateY(-1px); }
 
-// ---------- Portada (hero) ----------
+// Desplegable de sprints
+.nav-grupo { position: relative; }
+.nav-sub {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 5;
+  isolation: isolate;
+  min-width: 15rem;
+  padding: 0.7rem 0.4rem 0.4rem;       // el espacio de arriba hace de "puente" para el mouse
+  display: none;
+}
+.nav-sub::after {                      // la caja visible del desplegable
+  content: "";
+  position: absolute;
+  inset: 0.7rem 0 0 0;
+  background: $tarjeta;
+  border: 1px solid $borde;
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+  z-index: -1;
+}
+.nav-sub a {
+  font-family: $fuente-texto;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: $texto-suave;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.nav-pill > a, .nav-boton {
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.nav-pill > a:hover, .nav-boton:hover { color: #fff; background: $tarjeta-2; }
+.nav-pill > a.activo, .nav-boton.activo { color: #fff; background: $rojo; }
+.flecha {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+}
+.nav-repo {
+  padding: 0.5rem 1.2rem;
+  border-radius: 999px;
+  background: $rojo;
+  color: #fff;
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.nav-repo:hover { background: #e0123a; transform: translateY(-1px); }
+
+// Desplegable de sprints
+.nav-grupo { position: relative; }
+.nav-sub {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 15rem;
+  padding-top: 0.7rem;
+  display: none;
+}
+.nav-sub::after {                      // la "caja" visible del desplegable
+  content: "";
+  position: absolute;
+  inset: 0.7rem 0 0 0;
+  background: $tarjeta;
+  border: 1px solid $borde;
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+  z-index: -1;
+}
+.nav-sub { z-index: 5; isolation: isolate; padding: 0.7rem 0.4rem 0.4rem; }
+.nav-sub a {
+  display: block;
+  padding: 0.55rem 0.9rem;
+  border-radius: 10px;
+}
+.nav-sub a b { color: #fff; font-weight: 600; margin-right: 0.3rem; }
+.nav-sub a:hover { background: $tarjeta-2; color: #fff; }
+.nav-sub a.activo { background: $rojo; color: #fff; }
+.nav-grupo:hover .nav-sub,
+.nav-grupo:focus-within .nav-sub,
+.nav-grupo.abierto .nav-sub { display: block; }
+
+// Botón de hamburguesa (solo celular)
+.nav-toggle {
+  display: none;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 1px solid $borde;
+  border-radius: 12px;
+  background: $tarjeta;
+  cursor: pointer;
+  padding: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.28rem;
+}
+.nav-toggle span { display: block; width: 1.1rem; height: 2px; background: #fff; border-radius: 2px; }
+
+@media screen and (max-width: 56em) {
+  .topbar-inner { padding: 0.6rem 1rem; }
+  .nav-toggle { display: flex; }
+  .topnav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.7rem;
+    padding: 0.8rem 1rem 1rem;
+    background: $fondo;
+    border-bottom: 1px solid $borde;
+  }
+  .topnav.abierto { display: flex; }
+  .nav-pill { flex-direction: column; align-items: stretch; border-radius: 18px; padding: 0.4rem; }
+  .nav-pill > a, .nav-boton { justify-content: space-between; border-radius: 12px; }
+  .nav-sub { position: static; min-width: 0; padding: 0.3rem 0 0.3rem 0.6rem; }
+  .nav-sub::after { display: none; }
+  .nav-grupo:hover .nav-sub, .nav-grupo:focus-within .nav-sub { display: none; }
+  .nav-grupo.abierto .nav-sub { display: block; }
+  .nav-repo { text-align: center; }
+}
+
+// ============================================================
+// PORTADA (hero) + TERMINAL
+// ============================================================
 .hero {
   position: relative;
   overflow: hidden;
-  padding: 5rem 1.5rem 3.5rem;
+  padding: 4.5rem 1.5rem 4rem;
   background:
     radial-gradient(ellipse 70% 90% at 15% 0%, rgba(200, 16, 46, 0.5), transparent 65%),
     linear-gradient(180deg, #1a0509 0%, $fondo 100%);
@@ -105,7 +283,15 @@ img { max-width: 100%; }
   mask-image: linear-gradient(180deg, #000 0%, transparent 85%);
   -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 85%);
 }
-.hero-inner { position: relative; max-width: 64rem; margin: 0 auto; }
+.hero-inner {
+  position: relative;
+  max-width: 76rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 3rem;
+  align-items: center;
+}
 .hero-etiqueta {
   display: inline-block;
   padding: 0.3rem 0.9rem;
@@ -119,13 +305,13 @@ img { max-width: 100%; }
 .hero h1 {
   margin: 1.2rem 0 0.8rem;
   font-family: $fuente-titulos;
-  font-size: clamp(2.3rem, 7vw, 4.4rem);
+  font-size: clamp(2.3rem, 6vw, 4.2rem);
   line-height: 1.05;
   letter-spacing: -1.5px;
   color: #fff;
 }
 .hero h1 span { color: $rojo; }
-.hero-texto { max-width: 36rem; font-size: 1.1rem; color: $texto-suave; margin: 0 0 1.8rem; }
+.hero-texto { max-width: 34rem; font-size: 1.1rem; color: $texto-suave; margin: 0 0 1.8rem; }
 .hero-botones { display: flex; flex-wrap: wrap; gap: 0.8rem; }
 .btn-principal, .btn-secundario {
   padding: 0.7rem 1.5rem;
@@ -134,11 +320,11 @@ img { max-width: 100%; }
   text-decoration: none;
   transition: transform 0.15s ease, background 0.15s ease;
 }
-.btn-principal { background: $rojo; color: #fff; }
+.btn-principal { background: $rojo; color: #fff; box-shadow: 0 8px 24px rgba(200, 16, 46, 0.35); }
 .btn-principal:hover { background: #e0123a; transform: translateY(-2px); }
 .btn-secundario { border: 1px solid #fff; color: #fff; }
 .btn-secundario:hover { background: #fff; color: $fondo; transform: translateY(-2px); }
-.hero-cifras { display: flex; flex-wrap: wrap; gap: 2.5rem; margin-top: 3rem; }
+.hero-cifras { display: flex; flex-wrap: wrap; gap: 2.5rem; margin-top: 2.6rem; }
 .hero-cifras strong {
   display: block;
   font-family: $fuente-titulos;
@@ -148,7 +334,63 @@ img { max-width: 100%; }
 }
 .hero-cifras span { font-size: 0.85rem; color: $texto-suave; }
 
-// ---------- Contenido ----------
+// Ventana de terminal
+.terminal {
+  background: #0a0c10;
+  border: 1px solid $borde;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6), 0 0 60px rgba(200, 16, 46, 0.22);
+}
+.terminal-barra {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.7rem 1rem;
+  background: $tarjeta;
+  border-bottom: 1px solid $borde;
+}
+.terminal-barra i { width: 0.7rem; height: 0.7rem; border-radius: 50%; background: #3a404d; }
+.terminal-barra i:first-child { background: $rojo; }
+.terminal-titulo { margin-left: 0.6rem; font-family: $fuente-codigo; font-size: 0.78rem; color: $texto-suave; }
+.terminal-cuerpo {
+  margin: 0;
+  height: 17rem;
+  padding: 1rem 1.1rem;
+  overflow: hidden;
+  font-family: $fuente-codigo;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: $texto;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+.t-prompt { color: $rojo-claro; }
+.t-cmd { color: #fff; }
+.t-out { color: $texto-suave; }
+.cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.05em;
+  vertical-align: text-bottom;
+  background: $rojo;
+  animation: parpadeo 1s steps(1) infinite;
+}
+@keyframes parpadeo { 50% { opacity: 0; } }
+.terminal-nota { margin: 0.7rem 0 0; font-size: 0.75rem; color: $texto-suave; text-align: center; }
+.no-js .hero-terminal { display: none; }
+.no-js .hero-inner { grid-template-columns: 1fr; }
+
+@media screen and (max-width: 56em) {
+  .hero { padding: 3rem 1rem 2.5rem; }
+  .hero-inner { grid-template-columns: 1fr; gap: 2.2rem; }
+  .terminal-cuerpo { height: 14rem; font-size: 0.76rem; }
+  .hero-cifras { gap: 1.6rem; }
+}
+
+// ============================================================
+// CONTENIDO GENERAL
+// ============================================================
 .main-content {
   max-width: 64rem;
   margin: 0 auto;
@@ -198,17 +440,17 @@ body.inicio .main-content > h1:first-child { display: none; }   // el título ya
   flex-direction: column;
   gap: 0.3rem;
   padding: 1.3rem 1.3rem 1.1rem;
-  background: $tarjeta;
+  background: linear-gradient(160deg, $tarjeta-2 0%, $tarjeta 60%);
   border: 1px solid $borde;
-  border-radius: 16px;
+  border-radius: 18px;
   color: $texto;
   text-decoration: none;
-  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
 }
 .main-content a.sprint-card:hover {
   transform: translateY(-4px);
   border-color: $rojo;
-  background: $tarjeta-2;
+  box-shadow: 0 12px 32px rgba(200, 16, 46, 0.22);
   color: $texto;
 }
 .sprint-num {
@@ -219,7 +461,8 @@ body.inicio .main-content > h1:first-child { display: none; }   // el título ya
   font-weight: 600;
 }
 .sprint-card strong { font-family: $fuente-titulos; font-size: 1.25rem; color: #fff; }
-.sprint-card p { margin: 0 0 0.6rem; font-size: 0.92rem; line-height: 1.5; color: $texto-suave; }
+.sprint-card p { margin: 0 0 0.4rem; font-size: 0.92rem; line-height: 1.5; color: $texto-suave; }
+.sprint-fecha { font-size: 0.8rem; color: $texto-suave; margin-bottom: 0.5rem; }
 .sprint-estado {
   align-self: flex-start;
   margin-top: auto;
@@ -235,7 +478,7 @@ body.inicio .main-content > h1:first-child { display: none; }   // el título ya
 .estado-hecho .sprint-estado { background: $rojo; border-color: $rojo; color: #fff; }
 .estado-en-curso .sprint-estado { border-color: $rojo; color: $rojo-claro; }
 
-// ---------- Tarjetas de distribuciones (ya existían) ----------
+// ---------- Tarjetas de distribuciones ----------
 .main-content .tarjetas {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
@@ -259,18 +502,147 @@ body.inicio .main-content > h1:first-child { display: none; }   // el título ya
 .main-content .tarjeta strong { display: block; font-family: $fuente-titulos; font-size: 1.3rem; margin: 0.2rem 0; }
 .main-content .tarjeta small { color: $texto-suave; font-size: 0.9rem; }
 
-// ---------- Tablas ----------
-.main-content table {
-  display: block;
-  width: 100%;
+// ============================================================
+// RUTA DEL PROYECTO (línea de tiempo + cuenta regresiva)
+// ============================================================
+.ruta { margin: 1.6rem 0 1rem; }
+.hitos {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+  padding: 0.4rem 0 0.2rem;
+}
+.ruta-linea {
+  position: absolute;
+  top: 1.05rem;
+  left: 10%;
+  right: 10%;
+  height: 4px;
+  border-radius: 4px;
+  background: $borde;
+}
+.ruta-progreso {
+  height: 100%;
+  width: var(--avance, 0%);
+  border-radius: 4px;
+  background: $rojo;
+  box-shadow: 0 0 14px rgba(200, 16, 46, 0.7);
+}
+.main-content a.hito, .hito {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 0.3rem 0.4rem;
+  color: $texto;
+  text-decoration: none;
+}
+.hito-punto {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-bottom: 0.7rem;
+  border-radius: 50%;
+  background: $fondo;
+  border: 3px solid $borde;
+  transition: transform 0.18s ease;
+}
+.hito.estado-hecho .hito-punto { background: $rojo; border-color: $rojo; }
+.hito-proximo .hito-punto {
+  border-color: $rojo;
+  box-shadow: 0 0 0 0 rgba(200, 16, 46, 0.7);
+  animation: pulso 1.8s ease-out infinite;
+}
+@keyframes pulso {
+  70% { box-shadow: 0 0 0 12px rgba(200, 16, 46, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(200, 16, 46, 0); }
+}
+.main-content a.hito:hover .hito-punto { transform: scale(1.2); }
+.hito-fecha { font-size: 0.78rem; color: $rojo-claro; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+.hito strong { font-family: $fuente-titulos; font-size: 1.05rem; color: #fff; }
+.hito small { color: $texto-suave; font-size: 0.82rem; line-height: 1.3; }
+
+.ruta-tarjetas {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 1rem;
+  margin-top: 1.8rem;
+}
+.ruta-tarjeta {
+  padding: 1.3rem 1.5rem;
+  border: 1px solid $borde;
+  border-radius: 18px;
+  background: linear-gradient(160deg, $tarjeta-2 0%, $tarjeta 60%);
+}
+.ruta-cuenta {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 70% 120% at 100% 0%, rgba(200, 16, 46, 0.35), transparent 70%),
+    linear-gradient(160deg, $tarjeta-2 0%, $tarjeta 60%);
+}
+.ruta-etiqueta { display: block; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: $rojo-claro; font-weight: 600; }
+.ruta-nombre { display: block; font-family: $fuente-titulos; font-size: 1.35rem; color: #fff; margin-top: 0.2rem; }
+.ruta-detalle { display: block; font-size: 0.88rem; color: $texto-suave; }
+.cuenta { display: flex; gap: 0.8rem; margin-top: 1rem; min-height: 4.2rem; }
+.cuenta > div {
+  min-width: 4.4rem;
+  padding: 0.55rem 0.5rem;
+  text-align: center;
+  border: 1px solid $borde;
+  border-radius: 12px;
+  background: rgba(10, 12, 16, 0.7);
+}
+.cuenta b { display: block; font-family: $fuente-titulos; font-size: 1.8rem; line-height: 1.1; color: #fff; }
+.cuenta span { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: $texto-suave; }
+.cuenta-fin { margin: 0; align-self: center; color: $rojo-claro; font-weight: 600; }
+.ruta-avance { display: flex; align-items: center; gap: 1.2rem; }
+.anillo {
+  flex: none;
+  position: relative;
+  width: 5.6rem;
+  height: 5.6rem;
+  border-radius: 50%;
+  background: conic-gradient($rojo calc(var(--p, 0) * 1%), $borde 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.anillo::before { content: ""; position: absolute; inset: 0.55rem; border-radius: 50%; background: $tarjeta; }
+.anillo span { position: relative; font-family: $fuente-titulos; font-weight: 700; font-size: 1.15rem; color: #fff; }
+
+@media screen and (max-width: 48em) {
+  .hitos { grid-template-columns: 1fr; gap: 0; padding-left: 0.2rem; }
+  .ruta-linea { top: 0.6rem; bottom: 1.2rem; left: 0.95rem; right: auto; width: 4px; height: auto; }
+  .ruta-progreso { width: 100%; height: var(--avance, 0%); }
+  .main-content a.hito, .hito { flex-direction: row; flex-wrap: wrap; align-items: baseline; justify-content: flex-start; text-align: left; gap: 0.2rem 0.7rem; padding: 0.55rem 0 0.55rem 2.6rem; }
+  .hito-punto { position: absolute; left: 0.2rem; top: 0.7rem; margin: 0; }
+  .ruta-tarjetas { grid-template-columns: 1fr; }
+  .cuenta { gap: 0.5rem; }
+  .cuenta > div { min-width: 0; flex: 1; }
+}
+
+// ============================================================
+// TABLAS (llenan todo el recuadro)
+// ============================================================
+.tabla-scroll {
   overflow-x: auto;
-  border-collapse: separate;
-  border-spacing: 0;
+  margin: 1.2rem 0;
   border: 1px solid $borde;
   border-radius: 14px;
-  margin: 1.2rem 0;
   background: $tarjeta;
 }
+.main-content table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2rem 0;
+  border: 1px solid $borde;
+  background: $tarjeta;
+}
+.tabla-scroll table { margin: 0; border: 0; }
 .main-content table th {
   background: $rojo;
   color: #fff;
@@ -278,11 +650,32 @@ body.inicio .main-content > h1:first-child { display: none; }   // el título ya
   text-align: left;
   padding: 0.75rem 1rem;
   border: none;
+  white-space: nowrap;
 }
-.main-content table td { padding: 0.7rem 1rem; border: none; border-top: 1px solid $borde; }
+.main-content table td { padding: 0.7rem 1rem; border: none; border-top: 1px solid $borde; vertical-align: top; }
 .main-content table tbody tr:nth-child(even) td { background: $tarjeta-2; }
+.main-content table td:first-child { color: #fff; font-weight: 500; }
 
-// ---------- Listas numeradas como tarjetas ----------
+// Pestañas del comparador (instalador)
+.pestanas { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.4rem 0 0; }
+.pestanas button {
+  padding: 0.45rem 1.1rem;
+  border: 1px solid $borde;
+  border-radius: 999px;
+  background: $tarjeta;
+  color: $texto-suave;
+  font: 500 0.9rem $fuente-texto;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.pestanas button:hover { color: #fff; border-color: $rojo; }
+.pestanas button.activa { background: $rojo; border-color: $rojo; color: #fff; }
+.pestanas + .tabla-scroll { margin-top: 0.8rem; }
+.main-content table.modo-uno td:first-child, .main-content table.modo-uno th:first-child { width: 32%; }
+
+// ============================================================
+// LISTAS, MENÚS Y BOTONES DE LAS PÁGINAS
+// ============================================================
 .main-content ol { list-style: none; counter-reset: item; padding: 0; margin: 1rem 0 1.5rem; }
 .main-content ol > li {
   counter-increment: item;
@@ -310,7 +703,6 @@ body.inicio .main-content > h1:first-child { display: none; }   // el título ya
 }
 .main-content ol > li p { margin: 0.35rem 0; }
 
-// ---------- Menú de enlaces ----------
 .main-content ul.menu { list-style: none; padding: 0; margin: 1rem 0 2rem; }
 .main-content ul.menu li { margin: 0 0 0.5rem; }
 .main-content ul.menu li a {
@@ -326,7 +718,6 @@ body.inicio .main-content > h1:first-child { display: none; }   // el título ya
 }
 .main-content ul.menu li a:hover { background: $tarjeta-2; transform: translateX(4px); }
 
-// ---------- Botón volver ----------
 .main-content a.volver {
   display: inline-block;
   margin: 0 0.5rem 1.2rem 0;
@@ -339,7 +730,7 @@ body.inicio .main-content > h1:first-child { display: none; }   // el título ya
 }
 .main-content a.volver:hover { background: $rojo; color: #fff; }
 
-// ---------- Pendientes (COMPLETAR): rojo con línea punteada ----------
+// Pendientes (COMPLETAR): rojo con línea punteada
 .main-content mark {
   background: rgba(200, 16, 46, 0.15);
   color: #ffd5db;
@@ -358,20 +749,40 @@ body.inicio .main-content > h1:first-child { display: none; }   // el título ya
   border-radius: 14px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
+.main-content img.ampliable { cursor: zoom-in; transition: border-color 0.15s ease, transform 0.15s ease; }
+.main-content img.ampliable:hover, .main-content img.ampliable:focus-visible { border-color: $rojo; transform: scale(1.01); outline: none; }
 .main-content pre {
   background: #0a0c10;
   border: 1px solid $borde;
   border-radius: 12px;
   padding: 1rem 1.2rem;
   overflow-x: auto;
+  font-family: $fuente-codigo;
 }
-.main-content code { font-size: 0.9em; }
+.main-content code { font-size: 0.9em; font-family: $fuente-codigo; }
 .main-content p code, .main-content li code, .main-content td code {
   background: $tarjeta-2;
   color: $rojo-claro;
   border-radius: 6px;
   padding: 0.1rem 0.4rem;
 }
+.codigo { position: relative; margin: 1rem 0; }
+.codigo pre { margin: 0; padding-right: 5.5rem; }
+.copiar {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.55rem;
+  padding: 0.25rem 0.8rem;
+  border: 1px solid $borde;
+  border-radius: 999px;
+  background: $tarjeta-2;
+  color: $texto-suave;
+  font: 500 0.78rem $fuente-texto;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.copiar:hover { color: #fff; border-color: $rojo; }
+.copiar.listo { background: $rojo; border-color: $rojo; color: #fff; }
 .main-content hr { border: none; border-top: 1px solid $borde; margin: 2rem 0; }
 .main-content blockquote {
   margin: 1rem 0;
@@ -382,10 +793,291 @@ body.inicio .main-content > h1:first-child { display: none; }   // el título ya
 }
 .main-content iframe { max-width: 100%; border: 0; border-radius: 14px; }
 
-// ---------- Pie ----------
+// Visor de capturas ampliadas
+.visor {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 3.5rem 1rem 1.5rem;
+  background: rgba(5, 6, 8, 0.93);
+  cursor: zoom-out;
+}
+.visor[hidden] { display: none; }
+.visor img {
+  max-width: 100%;
+  max-height: calc(100vh - 8rem);
+  border: 1px solid $borde;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+  cursor: default;
+}
+.visor-pie { margin: 0; max-width: 50rem; text-align: center; font-size: 0.9rem; color: $texto-suave; }
+.visor-cerrar {
+  position: absolute;
+  top: 0.8rem;
+  right: 1rem;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 1px solid $borde;
+  border-radius: 50%;
+  background: $tarjeta;
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.visor-cerrar:hover { background: $rojo; border-color: $rojo; }
+
+// ============================================================
+// PÁGINAS DE SPRINT: menú lateral + pasos plegables
+// ============================================================
+.sprint-layout {
+  margin: 0;
+  padding: 0 2rem 0 1.25rem;          // el menú queda pegado a la izquierda
+  display: grid;
+  grid-template-columns: 16rem minmax(0, 1fr);
+  gap: 2rem;
+}
+.sprint-layout .main-content { max-width: 72rem; margin: 0 auto; padding: 2.5rem 0 4rem; min-width: 0; width: 100%; }
+.con-lateral .topbar-inner { max-width: none; padding-left: 1.25rem; padding-right: 2rem; }   // la barra se alinea con el menú
+
+.lateral {
+  position: sticky;
+  top: $alto-barra;
+  align-self: start;
+  max-height: calc(100vh - #{$alto-barra});
+  overflow-y: auto;
+  padding: 2.5rem 0.2rem 2rem 0;
+  scrollbar-width: thin;
+  scrollbar-color: $borde transparent;
+}
+.lateral-bloque {
+  padding: 1rem 1rem 1.1rem;
+  margin-bottom: 1rem;
+  background: $tarjeta;
+  border: 1px solid $borde;
+  border-radius: 16px;
+}
+.lateral h4 {
+  margin: 0 0 0.7rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $rojo-claro;
+}
+.indice { display: flex; flex-direction: column; gap: 0.1rem; }
+.indice a {
+  display: block;
+  padding: 0.28rem 0.6rem;
+  border-left: 2px solid transparent;
+  border-radius: 0 8px 8px 0;
+  font-size: 0.86rem;
+  line-height: 1.35;
+  color: $texto-suave;
+  text-decoration: none;
+  transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+.indice a.ind-2 { margin-top: 0.45rem; color: $texto; font-weight: 600; }
+.indice a.ind-2:first-child { margin-top: 0; }
+.indice a.ind-3 { padding-left: 1.3rem; font-size: 0.82rem; }
+.indice a:hover { color: #fff; background: $tarjeta-2; }
+.indice a.activo { color: #fff; background: rgba(200, 16, 46, 0.18); border-left-color: $rojo; }
+
+.requisitos { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.35rem; }
+.requisitos li {
+  position: relative;
+  padding-left: 1.6rem;
+  font-size: 0.86rem;
+  line-height: 1.35;
+  color: $texto-suave;
+}
+.requisitos li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.12rem;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid $borde;
+  border-radius: 50%;
+}
+.requisitos li.hecho { color: $texto; }
+.requisitos li.hecho::before { background: $rojo; border-color: $rojo; }
+.requisitos li.hecho::after {
+  content: "";
+  position: absolute;
+  left: 0.36rem;
+  top: 0.3rem;
+  width: 0.28rem;
+  height: 0.5rem;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(40deg);
+}
+.req-resumen { margin: 0.8rem 0 0; font-size: 0.78rem; color: $texto-suave; }
+.lateral-sprints { display: flex; gap: 0.5rem; }
+.lateral-sprints a {
+  flex: 1;
+  padding: 0.4rem 0;
+  text-align: center;
+  border: 1px solid $borde;
+  border-radius: 10px;
+  font-family: $fuente-titulos;
+  font-weight: 700;
+  color: $texto-suave;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.lateral-sprints a:hover { color: #fff; border-color: $rojo; }
+.lateral-sprints a.activo { background: $rojo; border-color: $rojo; color: #fff; }
+.lateral-boton, .lateral-fondo { display: none; }
+
+.lateral-ocultar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid $borde;
+  border-radius: 12px;
+  background: $tarjeta;
+  color: $texto-suave;
+  font: 500 0.85rem $fuente-texto;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.lateral-ocultar span { font-size: 1.2rem; line-height: 1; color: $rojo-claro; }
+.lateral-ocultar:hover { color: #fff; border-color: $rojo; }
+
+// Menú oculto (solo en pantallas grandes): el contenido gana todo el ancho
+@media screen and (min-width: 62.01em) {
+  .sprint-layout.lateral-oculto { grid-template-columns: minmax(0, 1fr); }
+  .sprint-layout.lateral-oculto .lateral { display: none; }
+  .sprint-layout.lateral-oculto .main-content { max-width: 84rem; }
+  .sprint-layout.lateral-oculto .lateral-boton {
+    display: block;
+    position: fixed;
+    left: 1.25rem;
+    bottom: 1.25rem;
+    z-index: 50;
+    padding: 0.65rem 1.3rem;
+    border: 0;
+    border-radius: 999px;
+    background: $rojo;
+    color: #fff;
+    font: 600 0.9rem $fuente-texto;
+    box-shadow: 0 8px 24px rgba(200, 16, 46, 0.45);
+    cursor: pointer;
+  }
+  .sprint-layout.lateral-oculto .lateral-boton:hover { background: #e0123a; }
+}
+@media screen and (max-width: 62em) { .lateral-ocultar { display: none; } }
+
+// Pasos plegables
+details.paso {
+  margin: 0.8rem 0;
+  background: $tarjeta;
+  border: 1px solid $borde;
+  border-radius: 14px;
+  overflow: hidden;
+}
+details.paso > summary {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.95rem 1.2rem;
+  font-family: $fuente-titulos;
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  list-style: none;
+  transition: background 0.15s ease;
+}
+details.paso > summary::-webkit-details-marker { display: none; }
+details.paso > summary::before {
+  content: "";
+  flex: none;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-right: 3px solid $rojo;
+  border-bottom: 3px solid $rojo;
+  transform: rotate(-45deg);
+  transition: transform 0.18s ease;
+}
+details.paso[open] > summary::before { transform: rotate(45deg); }
+details.paso > summary:hover { background: $tarjeta-2; }
+details.paso[open] > summary { border-bottom: 1px solid $borde; }
+.paso-cuerpo { padding: 0.5rem 1.3rem 1.3rem; }
+.paso-cuerpo > :first-child { margin-top: 0.8rem; }
+
+.barra-pasos { display: flex; gap: 0.6rem; margin: 0 0 1.2rem; }
+.barra-pasos button {
+  padding: 0.4rem 1rem;
+  border: 1px solid $borde;
+  border-radius: 999px;
+  background: $tarjeta;
+  color: $texto-suave;
+  font: 500 0.85rem $fuente-texto;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.barra-pasos button:hover { color: #fff; border-color: $rojo; }
+
+@media screen and (max-width: 62em) {
+  .sprint-layout { display: block; padding: 0 1rem; }
+  .sprint-layout .main-content { padding: 1.5rem 0 5rem; }
+  .con-lateral .topbar-inner { padding: 0.6rem 1rem; }
+  .lateral {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 60;
+    width: 19rem;
+    max-width: 88vw;
+    max-height: none;
+    padding: 1rem;
+    background: $fondo;
+    border-right: 1px solid $borde;
+    transform: translateX(-105%);
+    transition: transform 0.22s ease;
+  }
+  .lateral.abierta { transform: none; }
+  .lateral-fondo.visible { display: block; position: fixed; inset: 0; z-index: 55; background: rgba(0, 0, 0, 0.6); }
+  .lateral-boton {
+    display: block;
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 50;
+    padding: 0.65rem 1.3rem;
+    border: 0;
+    border-radius: 999px;
+    background: $rojo;
+    color: #fff;
+    font: 600 0.9rem $fuente-texto;
+    box-shadow: 0 8px 24px rgba(200, 16, 46, 0.45);
+    cursor: pointer;
+  }
+}
+
+// ============================================================
+// APARICIÓN SUAVE + PIE
+// ============================================================
+.js .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.js .reveal.visible { opacity: 1; transform: none; }
+@media print { .js .reveal { opacity: 1 !important; transform: none !important; } .topbar, .lateral, .lateral-boton, .barra-pasos { display: none !important; } }
+
 .site-footer { border-top: 1px solid $borde; color: $texto-suave; font-size: 0.85rem; }
 .footer-inner {
-  max-width: 64rem;
+  max-width: 76rem;
   margin: 0 auto;
   padding: 1.5rem;
   display: flex;
@@ -396,10 +1088,9 @@ body.inicio .main-content > h1:first-child { display: none; }   // el título ya
 .site-footer a { color: $rojo-claro; }
 
 @media screen and (max-width: 42em) {
-  .hero { padding: 3rem 1rem 2.5rem; }
   .main-content { padding: 1.5rem 1rem 3rem; }
-  .topbar-inner { padding: 0.6rem 1rem; }
-  .brand { font-size: 0.9rem; }
   .main-content ol > li { padding-left: 3.2rem; }
-  .hero-cifras { gap: 1.6rem; }
+  .brand { font-size: 0.9rem; }
+  details.paso > summary { font-size: 1rem; padding: 0.85rem 1rem; }
+  .paso-cuerpo { padding: 0.4rem 1rem 1.1rem; }
 }

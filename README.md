@@ -3,6 +3,10 @@
 Universidad del Valle · Tecnología en Desarrollo de Software · Semestre 2026-2
 **Grupo 02**
 
+## Ruta del proyecto
+
+{% include timeline.html %}
+
 ## Objetivo
 Aplicar los conocimientos de Sistemas Operativos para instalar, configurar y administrar dos máquinas virtuales Linux en VirtualBox, y desplegar sobre ellas una imagen propia con Docker y Kubernetes, como base para el desarrollo y despliegue de software, documentando el proceso en un sitio web.
 

@@ -1,16 +1,31 @@
+{%- assign es_sprint = false -%}
+{%- if page.url contains '/sprint-' -%}{%- assign es_sprint = true -%}{%- endif -%}
 <header class="topbar">
-  <div class="topbar-inner">
-    <a class="brand" href="{{ '/' | relative_url }}"><span class="brand-dot"></span>SO · Grupo 02</a>
-    <nav class="topnav">
-      {% for s in site.data.sprints %}
-        {% capture ruta %}/{{ s.url }}{% endcapture %}
-        <a href="{{ s.url | relative_url }}"{% if page.url == ruta %} class="activo"{% endif %}>Sprint {{ s.numero }}</a>
-      {% endfor %}
-      {% for p in site.data.secciones %}
-        {% capture ruta %}/{{ p.url }}{% endcapture %}
-        <a href="{{ p.url | relative_url }}"{% if page.url == ruta %} class="activo"{% endif %}>{{ p.corto }}</a>
-      {% endfor %}
-      <a href="{{ site.repo_url }}" class="nav-repo">GitHub</a>
-    </nav>
-  </div>
+    <div class="topbar-inner">
+        <a class="brand" href="{{ '/' | relative_url }}"><span class="brand-dot"></span>SO · Grupo 02</a>
+        <button class="nav-toggle" type="button" aria-label="Abrir el menú" aria-expanded="false" aria-controls="menu-principal"><span></span><span></span><span></span></button>
+        
+        <nav class="topnav" id="menu-principal" aria-label="Principal">
+            <div class="nav-pill">
+                <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="activo"{% endif %}>Inicio</a>
+
+                <div class="nav-grupo">
+                    <button class="nav-boton{% if es_sprint %} activo{% endif %}" type="button" aria-expanded="false" aria-haspopup="true">Sprints <span class="flecha"></span></button>
+                    
+                    <div class="nav-sub">
+                        {%- for s in site.data.sprints -%}
+                        {%- capture ruta %}/{{ s.url }}{% endcapture %}
+                        <a href="{{ s.url | relative_url }}"{% if page.url == ruta %} class="activo"{% endif %}><b>Sprint {{ s.numero }}</b> {{ s.titulo }}</a>
+                        {%- endfor -%}
+                    </div>
+                </div>
+
+                {%- for p in site.data.secciones -%}
+                {%- capture ruta %}/{{ p.url }}{% endcapture %}
+                <a href="{{ p.url | relative_url }}"{% if page.url == ruta %} class="activo"{% endif %}>{{ p.corto }}</a>
+                {%- endfor -%}
+            </div>
+            <a class="nav-repo" href="{{ site.repo_url }}">GitHub</a>
+        </nav>
+    </div>
 </header>

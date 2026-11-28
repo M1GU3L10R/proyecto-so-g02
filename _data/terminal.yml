@@ -1,0 +1,33 @@
+# Guion de la terminal animada de la portada (solo es decoración).
+# prompt = lo que aparece antes del comando; cmd = lo que "se escribe"; salida = respuesta.
+- prompt: "miguel@g02-grafica:~$"
+  cmd: "lsblk -o NAME,SIZE,MOUNTPOINT"
+  salida:
+    - "NAME    SIZE MOUNTPOINT"
+    - "sda      25G"
+    - "├─sda1  488M /boot/efi"
+    - "├─sda2  1,9G [SWAP]"
+    - "├─sda3   13G /"
+    - "└─sda4  8,4G /home"
+- prompt: "miguel@g02-grafica:~$"
+  cmd: "ping -c 2 192.168.56.102"
+  salida:
+    - "64 bytes from 192.168.56.102: icmp_seq=1 ttl=64 time=0.41 ms"
+    - "64 bytes from 192.168.56.102: icmp_seq=2 ttl=64 time=0.38 ms"
+    - "2 packets transmitted, 2 received, 0% packet loss"
+- prompt: "miguel@g02-grafica:~$"
+  cmd: "ssh faver@192.168.56.102"
+  salida: []
+- prompt: "[faver@g02-consola ~]$"
+  cmd: "cat /etc/redhat-release"
+  salida:
+    - "Rocky Linux release 10.3 (Red Quartz)"
+- prompt: "[faver@g02-consola ~]$"
+  cmd: "exit"
+  salida:
+    - "logout"
+    - "Connection to 192.168.56.102 closed."
+- prompt: "miguel@g02-grafica:~$"
+  cmd: "echo \"Siguiente: usuarios, firewall y Docker\""
+  salida:
+    - "Siguiente: usuarios, firewall y Docker"

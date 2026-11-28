@@ -1,22 +1,68 @@
 # MODELO: aquí viven los datos de los sprints.
 # estado puede ser: hecho | en curso | pendiente
+# En "requisitos" marquen hecho: true cuando cada punto esté terminado.
 - numero: 0
   titulo: Arranque
   resumen: Distribuciones elegidas, plan de trabajo y ficha de versión.
   estado: hecho
   url: sprint-0.html
+  fecha: "2026-11-19"
+  fecha_texto: jue 19 nov
+  requisitos:
+    - { texto: "Repositorio público con carpeta plan", hecho: true }
+    - { texto: "Plan de trabajo", hecho: true }
+    - { texto: "Ficha de versión", hecho: true }
+
+
 - numero: 1
   titulo: Montaje
   resumen: Instalación de las máquinas virtuales con evidencias.
   estado: hecho
   url: sprint-1.html
+  fecha: "2026-11-26"
+  fecha_texto: jue 26 nov
+  requisitos:
+    - { texto: "Video", hecho: true }
+    - { texto: "Referencia y adaptación", hecho: true }
+    - { texto: "VM gráfica", hecho: true }
+    - { texto: "VM de consola", hecho: true }
+    - { texto: "Red", hecho: true }
+    - { texto: "SSH", hecho: true }
+    - { texto: "Instantáneas", hecho: true }
+    - { texto: "Código del sprint", hecho: true }
+    - { texto: "Errores y soluciones", hecho: true }
+
+
 - numero: 2
   titulo: Servicios
   resumen: Usuarios, firewall, SSH, scripts, procesos y Docker Engine.
   estado: pendiente
   url: sprint-2.html
+  fecha: "2026-12-10"
+  fecha_texto: jue 10 dic
+  requisitos:
+    - { texto: "Video", hecho: false }
+    - { texto: "Usuarios y grupo", hecho: false }
+    - { texto: "sudo y permisos", hecho: false }
+    - { texto: "Firewall", hecho: false }
+    - { texto: "Llave SSH y actualización", hecho: false }
+    - { texto: "Script gráfico", hecho: false }
+    - { texto: "Script de consola", hecho: false }
+    - { texto: "Procesos", hecho: false }
+    - { texto: "Docker Engine", hecho: false }
+
+    
 - numero: 3
   titulo: Cierre
   resumen: Dockerfile, Docker Hub, Kubernetes y sitio web.
   estado: pendiente
   url: sprint-3.html
+  fecha: "2026-12-17"
+  fecha_texto: jue 17 dic
+  requisitos:
+    - { texto: "Video", hecho: false }
+    - { texto: "Dockerfile", hecho: false }
+    - { texto: "Contenedor", hecho: false }
+    - { texto: "Docker Hub", hecho: false }
+    - { texto: "Kubernetes", hecho: false }
+    - { texto: "Sitio web", hecho: false }
