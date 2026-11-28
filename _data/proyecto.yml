@@ -1,0 +1,8 @@
+# Datos generales del cronograma (están en plan/plan-de-trabajo.md)
+hora_cierre: "23:55"
+zona: "-05:00"
+sustentacion:
+  titulo: Sustentación
+  texto: Presentación y prueba individual
+  fecha: "2026-12-18"
+  fecha_texto: vie 18 dic

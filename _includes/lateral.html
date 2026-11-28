@@ -1,0 +1,37 @@
+{%- for s in site.data.sprints -%}
+{%- capture ruta %}/{{ s.url }}{% endcapture -%}
+{%- if page.url == ruta -%}{%- assign actual = s -%}{%- endif -%}
+{%- endfor -%}
+{%- assign listos = 0 -%}
+{%- assign cuantos = actual.requisitos | size -%}
+{%- for r in actual.requisitos -%}
+{%- if r.hecho -%}{%- assign listos = listos | plus: 1 -%}{%- endif -%}
+{%- endfor -%}
+<div class="lateral-fondo" id="lateral-fondo"></div>
+<aside class="lateral" id="lateral" aria-label="Menú del sprint">
+    <div class="lateral-bloque">
+        <h4>En esta página</h4>
+        <nav id="indice" class="indice" aria-label="Índice de la página"></nav>
+    </div>
+    {%- if cuantos > 0 %}
+    <div class="lateral-bloque">
+        <h4>Qué exige este sprint</h4>
+        <ul class="requisitos">
+            {%- for r in actual.requisitos -%}
+            <li class="{% if r.hecho %}hecho{% endif %}">{{ r.texto }}</li>
+            {%- endfor -%}
+        </ul>
+        <p class="req-resumen">{{ listos }} de {{ cuantos }} listos</p>
+    </div>
+    {%- endif %}
+    <div class="lateral-bloque">
+        <h4>Otros sprints</h4>
+        <div class="lateral-sprints">
+            {%- for s in site.data.sprints -%}
+            {%- capture ruta %}/{{ s.url }}{% endcapture -%}
+            <a href="{{ s.url | relative_url }}" title="Sprint {{ s.numero }} · {{ s.titulo }}"{% if page.url == ruta %} class="activo"{% endif %}>{{ s.numero }}</a>
+            {%- endfor -%}
+        </div>
+    </div>
+</aside>
+<button class="lateral-boton" id="lateral-boton" type="button" aria-controls="lateral" aria-expanded="false">Índice</button>
