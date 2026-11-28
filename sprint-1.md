@@ -148,7 +148,7 @@ cat /etc/fstab
 
 ## 3. Red
 
-**Qué hicimos:** Qué hicimos: Configuramos la conectividad de red de ambas máquinas virtuales (g02-grafica y g02-consola) en VirtualBox utilizando el Adaptador 1 en modo NAT (para salida a internet/repositorios) y el Adaptador 2 en modo Red solo-anfitrión (Host-only) (para comunicación interna entre el anfitrión y las VMs). Verificamos las direcciones IP asignadas y comprobamos la conectividad mediante ping en ambos sentidos.
+**Qué hicimos:** Configuramos la conectividad de red de ambas máquinas virtuales (g02-grafica y g02-consola) en VirtualBox utilizando el Adaptador 1 en modo NAT (para salida a internet/repositorios) y el Adaptador 2 en modo Red solo-anfitrión (Host-only) (para comunicación interna entre el anfitrión y las VMs). Verificamos las direcciones IP asignadas y comprobamos la conectividad mediante ping en ambos sentidos.
 
 ### Paso 1. Verificación de IP y pruebas de conectividad (ping)
 
@@ -157,6 +157,7 @@ cat /etc/fstab
 ![Verificación de IP consola](img/ip-vm-consola.png)
 
 ![Verificación de IP grafica](img/ip-vm-grafica.png)
+
 
 
 *Pruebas de conectividad:*
@@ -178,6 +179,7 @@ ssh faver@192.168.56.102
 ```
 
 ![Comando de conexion en consola](img/ssh-conexion.png)
+
 
 
 **prueba en la conexion ssh:** Como prueba creamos y enviamos un archivo TXT con el texto "Hola" desde la VM grafica hacia la VM consola:

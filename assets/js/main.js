@@ -282,9 +282,27 @@
       if (fondo) { fondo.classList.remove('visible'); }
       if (boton) { boton.setAttribute('aria-expanded', 'false'); }
     }
+    var ocultar = $('#lateral-ocultar');
+    var movil = window.matchMedia ? window.matchMedia('(max-width: 62em)') : { matches: false };
+    function guardar(v) { try { localStorage.setItem('so-lateral', v); } catch (e) { /* sin almacenamiento */ } }
+    function leer() { try { return localStorage.getItem('so-lateral'); } catch (e) { return null; } }
+    function ponerOculto(si) {
+      capa.classList.toggle('lateral-oculto', si);
+      if (ocultar) { ocultar.setAttribute('aria-expanded', si ? 'false' : 'true'); }
+      if (boton && !movil.matches) { boton.setAttribute('aria-expanded', si ? 'false' : 'true'); }
+    }
+    if (leer() === 'oculto') { ponerOculto(true); }          // recuerda lo que elegiste
+    if (ocultar) {
+      ocultar.addEventListener('click', function () { ponerOculto(true); guardar('oculto'); });
+    }
     if (boton && lateral) {
       boton.addEventListener('click', function () {
-        var abierta = lateral.classList.toggle('abierta');
+        if (!movil.matches && capa.classList.contains('lateral-oculto')) {   // escritorio: volver a mostrarlo
+          ponerOculto(false);
+          guardar('visible');
+          return;
+        }
+        var abierta = lateral.classList.toggle('abierta');          // celular: panel deslizable
         if (fondo) { fondo.classList.toggle('visible', abierta); }
         boton.setAttribute('aria-expanded', abierta ? 'true' : 'false');
       });

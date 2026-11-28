@@ -837,14 +837,14 @@ body.inicio .main-content > h1:first-child { display: none; }   // el título ya
 // PÁGINAS DE SPRINT: menú lateral + pasos plegables
 // ============================================================
 .sprint-layout {
-  max-width: 76rem;
-  margin: 0 auto;
-  padding: 0 1.5rem;
+  margin: 0;
+  padding: 0 2rem 0 1.25rem;          // el menú queda pegado a la izquierda
   display: grid;
-  grid-template-columns: 16.5rem minmax(0, 1fr);
-  gap: 2.5rem;
+  grid-template-columns: 16rem minmax(0, 1fr);
+  gap: 2rem;
 }
-.sprint-layout .main-content { max-width: none; margin: 0; padding: 2.5rem 0 4rem; min-width: 0; }
+.sprint-layout .main-content { max-width: 72rem; margin: 0 auto; padding: 2.5rem 0 4rem; min-width: 0; width: 100%; }
+.con-lateral .topbar-inner { max-width: none; padding-left: 1.25rem; padding-right: 2rem; }   // la barra se alinea con el menú
 
 .lateral {
   position: sticky;
@@ -937,6 +937,48 @@ body.inicio .main-content > h1:first-child { display: none; }   // el título ya
 .lateral-sprints a.activo { background: $rojo; border-color: $rojo; color: #fff; }
 .lateral-boton, .lateral-fondo { display: none; }
 
+.lateral-ocultar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid $borde;
+  border-radius: 12px;
+  background: $tarjeta;
+  color: $texto-suave;
+  font: 500 0.85rem $fuente-texto;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.lateral-ocultar span { font-size: 1.2rem; line-height: 1; color: $rojo-claro; }
+.lateral-ocultar:hover { color: #fff; border-color: $rojo; }
+
+// Menú oculto (solo en pantallas grandes): el contenido gana todo el ancho
+@media screen and (min-width: 62.01em) {
+  .sprint-layout.lateral-oculto { grid-template-columns: minmax(0, 1fr); }
+  .sprint-layout.lateral-oculto .lateral { display: none; }
+  .sprint-layout.lateral-oculto .main-content { max-width: 84rem; }
+  .sprint-layout.lateral-oculto .lateral-boton {
+    display: block;
+    position: fixed;
+    left: 1.25rem;
+    bottom: 1.25rem;
+    z-index: 50;
+    padding: 0.65rem 1.3rem;
+    border: 0;
+    border-radius: 999px;
+    background: $rojo;
+    color: #fff;
+    font: 600 0.9rem $fuente-texto;
+    box-shadow: 0 8px 24px rgba(200, 16, 46, 0.45);
+    cursor: pointer;
+  }
+  .sprint-layout.lateral-oculto .lateral-boton:hover { background: #e0123a; }
+}
+@media screen and (max-width: 62em) { .lateral-ocultar { display: none; } }
+
 // Pasos plegables
 details.paso {
   margin: 0.8rem 0;
@@ -991,6 +1033,7 @@ details.paso[open] > summary { border-bottom: 1px solid $borde; }
 @media screen and (max-width: 62em) {
   .sprint-layout { display: block; padding: 0 1rem; }
   .sprint-layout .main-content { padding: 1.5rem 0 5rem; }
+  .con-lateral .topbar-inner { padding: 0.6rem 1rem; }
   .lateral {
     position: fixed;
     top: 0;
